@@ -1,8 +1,8 @@
-<!DOCTYPE html><html class="dark h-full" lang="es"><head>
+<!DOCTYPE html><html class="dark h-full" data-lt-installed="true" lang="es" style=""><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="web_standard" name="shell-type">
-<title>Portafolio Pixel Art con Pantalla de Carga Optimizada - Jose Guillermo</title>
+<title>Portafolio - Jose Guillermo</title>
 <!-- Pixel Google Fonts -->
 <link href="https://fonts.preconnect.com" rel="preconnect">
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -104,79 +104,8 @@
       }
     }
   </script>
-</head>
-<body class="bg-background text-on-surface antialiased selection:bg-secondary selection:text-on-secondary pixel-grid-bg relative h-screen min-h-screen flex flex-col justify-between overflow-x-hidden">
-<!-- ================= PANTALLA DE CARGA SECUENCIAL OPTIMIZADA (BOOT LOADER ~3.8s) ================= -->
-
-<script>
-    (function() {
-      let bootFinished = false;
-      const pBar = document.getElementById('boot-progress-bar');
-      const pText = document.getElementById('boot-percentage');
-      const bBytes = document.getElementById('boot-bytes-label');
-      const statusLabel = document.getElementById('boot-status-label');
-      const loader = document.getElementById('boot-terminal-loader');
-      const totalBytes = 2048;
-
-      window.skipBootLoader = function() {
-        if (bootFinished) return;
-        bootFinished = true;
-        if (pBar) pBar.style.width = '100%';
-        if (pText) pText.textContent = '100%';
-        if (bBytes) bBytes.textContent = totalBytes + ' KB / ' + totalBytes + ' KB';
-        if (statusLabel) {
-          statusLabel.textContent = 'SYSTEM READY // ACCESS GRANTED';
-          statusLabel.classList.remove('text-outline');
-          statusLabel.classList.add('text-secondary');
-        }
-        for (let i = 1; i <= 6; i++) {
-          const el = document.getElementById('boot-log-' + i);
-          if (el) el.classList.remove('hidden');
-        }
-        if (loader) {
-          loader.classList.add('opacity-0', 'pointer-events-none');
-          setTimeout(() => {
-            if (loader.parentNode) loader.parentNode.removeChild(loader);
-          }, 500);
-        }
-      };
-
-      // Secuencia optimizada más ágil y dinámica (~3.3s de logs + ~600ms de verificación = ~3.9s totales)
-      const bootSteps = [
-        { delay: 550,  logId: 'boot-log-1', percent: 18, bytes: 368,  status: 'CHECKING MEMORY ALLOCATION...' },
-        { delay: 1100, logId: 'boot-log-2', percent: 36, bytes: 737,  status: 'VERIFYING IDENTITY...' },
-        { delay: 1650, logId: 'boot-log-3', percent: 55, bytes: 1126, status: 'SOFTWARE DEVELOPER CONFIRMED' },
-        { delay: 2200, logId: 'boot-log-4', percent: 76, bytes: 1556, status: 'LOADING CORE MODULES...' },
-        { delay: 2750, logId: 'boot-log-5', percent: 92, bytes: 1884, status: 'CONNECTING ENCRYPTED CHANNEL...' },
-        { delay: 3300, logId: 'boot-log-6', percent: 100, bytes: 2048, status: 'ACCESS GRANTED // SYSTEM READY' }
-      ];
-
-      bootSteps.forEach(step => {
-        setTimeout(() => {
-          if (bootFinished) return;
-          const logEl = document.getElementById(step.logId);
-          if (logEl) logEl.classList.remove('hidden');
-          if (pBar) pBar.style.width = step.percent + '%';
-          if (pText) pText.textContent = step.percent + '%';
-          if (bBytes) bBytes.textContent = step.bytes + ' KB / ' + totalBytes + ' KB';
-          if (statusLabel) {
-            statusLabel.textContent = step.status;
-            if (step.percent === 100) {
-              statusLabel.classList.remove('text-outline');
-              statusLabel.classList.add('text-secondary');
-            }
-          }
-        }, step.delay);
-      });
-
-      // Cierre automático fluido a los 600ms después del 100% (tiempo total ~3.9 segundos)
-      setTimeout(() => {
-        if (!bootFinished) {
-          skipBootLoader();
-        }
-      }, 3900);
-    })();
-  </script>
+<style class="">p { text-align: justify; text-justify: inter-word; hyphens: auto; }</style><style>.pixel-blink { animation: none !important; opacity: 1 !important; }</style></head>
+<body class="bg-background text-on-surface antialiased selection:bg-secondary selection:text-on-secondary pixel-grid-bg relative h-screen min-h-screen flex flex-col justify-between overflow-x-hidden" onkeydown="if(event.key === 'Escape'){ if(typeof closeAllModals==='function')closeAllModals(); if(typeof resetProjectsView==='function')resetProjectsView(); else{document.querySelectorAll('.project-card').forEach(c=&gt;c.style.display=''); document.querySelectorAll('.project-tab-btn').forEach(b=&gt;{b.classList.remove('bg-secondary','text-on-secondary');b.classList.add('bg-[#1e293b]','text-on-surface');});} if(typeof resetSkillsView==='function')resetSkillsView(); else{const va=document.getElementById('view-all');if(va)va.classList.remove('hidden');['view-frontend','view-backend','view-tools','view-practices'].forEach(id=&gt;{const el=document.getElementById(id);if(el)el.classList.add('hidden');});document.querySelectorAll('.skill-tab-btn').forEach(b=&gt;{b.classList.remove('bg-secondary','text-on-secondary');b.classList.add('bg-[#1e293b]','text-on-surface');});} }" tabindex="0">
 <!-- CRT Scanlines overlay -->
 <div class="fixed inset-0 crt-overlay pointer-events-none z-40 opacity-40"></div>
 <!-- Header / Barra superior -->
@@ -189,200 +118,69 @@
 <span class="font-silkscreen font-bold text-xs tracking-wider text-on-surface uppercase">JGRS // SYS.TERMINAL</span>
 <span class="hidden sm:inline-block px-2 py-0.5 bg-[#0f172a] border border-[#334155] text-outline font-pixel text-[8px] uppercase">PORT: 8080 [READY]</span>
 </div>
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-2"><div class="flex items-center bg-[#0d1c2d] border-2 border-[#334155] pixel-badge p-0.5 shadow-[2px_2px_0px_#000] mr-1" id="lang-switcher"><span class="font-silkscreen text-[9px] text-outline px-1.5 hidden sm:inline select-none">🌐 LANG:</span><div class="flex items-center gap-1 font-pixel text-[9px]"><button class="px-2 py-1 bg-secondary text-on-secondary border border-[#2c4900] shadow-[1px_1px_0px_#000] cursor-pointer transition-all uppercase font-bold" id="lang-btn-es" onclick="switchLanguage('es'); document.querySelectorAll('[data-es]').forEach(el =&gt; { el.textContent = el.getAttribute('data-es'); }); document.querySelectorAll('[data-es-placeholder]').forEach(el =&gt; { el.placeholder = el.getAttribute('data-es-placeholder'); }); this.classList.add('bg-secondary','text-on-secondary','font-bold'); this.classList.remove('bg-[#1e293b]','text-outline'); document.getElementById('lang-btn-en').classList.remove('bg-secondary','text-on-secondary','font-bold'); document.getElementById('lang-btn-en').classList.add('bg-[#1e293b]','text-outline');" title="Cambiar a Español" type="button">ES</button><button class="px-2 py-1 bg-[#1e293b] text-outline hover:text-white border border-[#334155] cursor-pointer transition-all uppercase" id="lang-btn-en" onclick="switchLanguage('en'); document.querySelectorAll('[data-en]').forEach(el =&gt; { el.textContent = el.getAttribute('data-en'); }); document.querySelectorAll('[data-en-placeholder]').forEach(el =&gt; { el.placeholder = el.getAttribute('data-en-placeholder'); }); this.classList.add('bg-secondary','text-on-secondary','font-bold'); this.classList.remove('bg-[#1e293b]','text-outline'); document.getElementById('lang-btn-es').classList.remove('bg-secondary','text-on-secondary','font-bold'); document.getElementById('lang-btn-es').classList.add('bg-[#1e293b]','text-outline');" title="Switch to English" type="button">EN</button></div></div>
 <span class="font-silkscreen text-[9px] text-secondary tracking-widest uppercase">● ONLINE</span>
 </div>
 </div>
 </header>
 <!-- Main Hero Content -->
-<main class="w-full flex-grow flex items-center justify-center px-margin-mobile md:px-margin max-w-[1320px] mx-auto relative z-20 py-2 sm:py-4">
-<div class="w-full relative">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-8 items-center">
-<!-- Left Column: Bio & Controls -->
-<div class="lg:col-span-7 flex flex-col items-start space-y-3 sm:space-y-4">
-<div class="inline-flex items-center gap-2 px-3 py-1 bg-[#0f172a] border-2 border-secondary/80 pixel-badge">
-<span class="w-2.5 h-2.5 bg-secondary pixel-blink"></span>
-<span class="font-pixel text-[8.5px] sm:text-[9px] uppercase tracking-widest text-secondary">● DISPONIBLE PARA PROYECTOS / OPEN TO WORK</span>
-</div>
-<div class="space-y-3">
-<div class="font-silkscreen text-[11px] sm:text-xs uppercase tracking-wider text-primary">[ DEV PROFILE // ID: #JGRS-8821 ]</div>
-<h1 class="font-pixel text-lg sm:text-2xl md:text-3xl text-on-surface leading-relaxed tracking-wide uppercase">
-              HOLA, SOY <span class="text-primary underline decoration-4 decoration-primary/40">JOSE GUILLERMO</span> RODRIGUEZ SAMCAM
-            </h1>
-<div class="inline-block bg-[#122131] border-2 border-[#2c4900] px-3 py-1.5 mt-1">
-<span class="font-pixel text-xs sm:text-sm text-secondary uppercase tracking-wide">⚡ TÉCNICO EN DESARROLLO DE SOFTWARE</span>
-</div>
-</div>
-<p class="font-vt323 text-xl sm:text-2xl lg:text-3xl text-tertiary max-w-xl leading-relaxed tracking-wide">
-            Desarrollador de software apasionado por la creación de sistemas robustos, código limpio, arquitecturas escalables y experiencias digitales interactivas con máxima precisión.
-          </p>
-<!-- Main Action Buttons -->
-<div class="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1">
-<button class="inline-flex items-center gap-2 px-4 sm:px-5 py-3 bg-secondary text-on-secondary font-pixel text-[11px] sm:text-xs uppercase tracking-wider pixel-btn-lime border-2 border-[#2c4900] cursor-pointer" onclick="toggleContactModal(true)" type="button">
-<span class="">[ CONTACTARME &gt; ]</span>
-</button>
-<button class="inline-flex items-center gap-2 px-4 sm:px-5 py-3 bg-[#1e293b] text-on-surface font-pixel text-[11px] sm:text-xs uppercase tracking-wider pixel-btn-dark border-2 border-[#475569] hover:text-secondary hover:border-secondary transition-all cursor-pointer" onclick="toggleSkillsModal(true)" type="button">
-<span class="material-symbols-outlined text-base leading-none text-secondary">terminal</span>
-<span class="">[ VER HABILIDADES ]</span>
-</button>
-<button class="inline-flex items-center gap-2 px-4 sm:px-5 py-3 bg-[#1e293b] text-on-surface font-pixel text-[11px] sm:text-xs uppercase tracking-wider pixel-btn-dark border-2 border-[#475569] hover:text-primary hover:border-primary transition-all cursor-pointer" onclick="toggleAboutModal(true)" type="button">
-<span class="text-base leading-none">👤</span>
-<span class="">[ SOBRE MÍ ]</span>
-</button>
-</div>
-<!-- Social Links (GitHub & LinkedIn) -->
-<div class="w-full pt-1 flex flex-wrap items-center gap-2.5 sm:gap-3">
-<span class="font-silkscreen text-[10px] text-outline uppercase tracking-wider">NETWORK // PROFILES:</span>
-<a aria-label="GitHub Profile" class="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0f172a] border-2 border-[#334155] text-on-surface font-pixel text-[9px] uppercase tracking-wider hover:border-secondary hover:text-secondary pixel-btn-dark transition-all" href="https://github.com/Joguisam-gt" onclick="RetroAudio.playSelectSound()" rel="noopener noreferrer" target="_blank">
-<svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg>
-<span class="">GITHUB // REPOS</span>
-</a>
-<a aria-label="LinkedIn Profile" class="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0f172a] border-2 border-[#334155] text-on-surface font-pixel text-[9px] uppercase tracking-wider hover:border-secondary hover:text-secondary pixel-btn-dark transition-all" href="https://www.linkedin.com/in/jose-guillermo-rodriguez-samcam-b161481a6/?isSelfProfile=true" onclick="RetroAudio.playSelectSound()" rel="noopener noreferrer" target="_blank">
-<svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path></svg>
-<span class="">LINKEDIN // CONNECT</span>
-</a>
-</div>
-<!-- Stats Bar -->
-<div class="w-full pt-1">
-<div class="grid grid-cols-3 gap-2 sm:gap-4 p-3 sm:p-4 bg-[#0f172a] border-2 border-[#334155] pixel-box-primary">
-<div class="flex flex-col border-r-2 border-[#1e293b] pr-2">
-<span class="font-pixel text-[11px] sm:text-sm text-on-surface tracking-tight">FULL-STACK</span>
-<span class="font-silkscreen text-[9px] uppercase tracking-wider text-outline mt-0.5">Dev Architecture</span>
-</div>
-<div class="flex flex-col border-r-2 border-[#1e293b] pr-2">
-<span class="font-pixel text-[11px] sm:text-sm text-secondary tracking-tight">CLEAN CODE</span>
-<span class="font-silkscreen text-[9px] uppercase tracking-wider text-outline mt-0.5">Best Practices</span>
-</div>
-<div class="flex flex-col">
-<span class="font-pixel text-[11px] sm:text-sm text-primary tracking-tight">LVL 4</span>
-<span class="font-silkscreen text-[9px] uppercase tracking-wider text-outline mt-0.5">Sec Clearance</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Right Column: ID Credential Badge con Foto Oficial -->
-<div class="lg:col-span-5 relative flex items-center justify-center lg:justify-end mt-4 lg:mt-0">
-<div class="relative flex flex-col items-center w-full max-w-[390px] mx-auto lg:mr-0">
-<div class="flex flex-col items-center -mb-2 z-20">
-<div class="w-16 h-3.5 bg-[#1e293b] border-2 border-[#475569] pixel-badge flex items-center justify-center">
-<div class="w-8 h-1 bg-black"></div>
-</div>
-<div class="w-4 h-5 bg-[#0f172a] border-2 border-[#475569] border-t-0 flex items-center justify-center">
-<div class="w-1.5 h-2.5 bg-secondary"></div>
-</div>
-</div>
-<div class="relative w-full bg-[#0d1c2d] border-4 border-[#334155] pixel-box-primary p-4 sm:p-5 flex flex-col justify-between overflow-hidden shadow-[4px_4px_0px_#020617]">
-<div class="relative z-10 flex items-center justify-between pb-2.5 border-b-2 border-[#1e293b]">
-<div class="flex items-center gap-2">
-<div class="w-3.5 h-3.5 bg-primary-container border border-primary flex items-center justify-center">
-<span class="font-pixel text-[7px] text-white">ID</span>
-</div>
-<span class="font-silkscreen text-[10px] text-on-surface font-bold tracking-wider">COMPANY ID // TECH BADGE</span>
-</div>
-<span class="font-pixel text-[8px] text-secondary uppercase tracking-widest">DEV-SEC-2025</span>
-</div>
-<div class="relative z-10 my-2.5 flex flex-col items-center">
-<div class="relative p-1 bg-[#020617] border-4 border-[#475569] pixel-box-primary">
-<img alt="Jose Guillermo Rodriguez Samcam - Fotocheck Oficial" class="w-32 h-32 sm:w-40 sm:h-40 object-cover filter contrast-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDgY93eOHT-dAs5ARXc1Zjev-UlsvQBh3jtsx9-gBQCj2gGS4L2LmpU3caS34VwKZIhfcedJxTTju3P_i944MMzCwwO7nTxFX9DNtVqCNSMqChSbXirUCA9s1rf9FSHi2kyJXSCc6BZPTzXO06gnplvzL9Upok-y4ss5Ee9ZHBifz1nv9DZB6xAZBgJE8X-qMFvJnalwerbOGvhCgYmVpIEH7Lui6ROc5h8N6XeURxa6QS3DnvGlB0Qnm4sN6mWtEYKMQ">
-<div class="absolute inset-0 crt-overlay opacity-30 pointer-events-none"></div>
-<div class="absolute top-2 right-2 px-1.5 py-0.5 bg-[#020617]/90 border border-secondary text-[8px] font-pixel text-secondary uppercase">AUTH</div>
-<div class="absolute bottom-2 left-2 px-2 py-0.5 bg-primary-container/80 border border-primary text-[8px] font-silkscreen text-white uppercase">OFFICIAL</div>
-</div>
-<div class="w-full text-center mt-2.5">
-<div class="font-silkscreen text-[9px] text-outline uppercase tracking-wider">NOMBRE COMPLETO</div>
-<h3 class="font-pixel text-xs sm:text-sm text-on-surface uppercase tracking-normal leading-snug mt-0.5">Jose Guillermo Rodriguez Samcam</h3>
-<div class="inline-block px-2.5 py-0.5 bg-[#122131] border border-secondary/60 mt-1">
-<span class="font-pixel text-[9px] text-secondary uppercase">TÉCNICO EN DESARROLLO DE SOFTWARE</span>
-</div>
-</div>
-</div>
-<div class="relative z-10 bg-[#020617] border-2 border-[#1e293b] p-2.5 my-1.5 space-y-1 font-silkscreen text-[9.5px]">
-<div class="flex justify-between items-center text-outline">
-<span class="">ID NUMBER:</span>
-<span class="text-primary font-pixel text-[8.5px]">#JGRS-8821</span>
-</div>
-<div class="flex justify-between items-center text-outline">
-<span class="">DEPARTMENT:</span>
-<span class="text-on-surface">SOFTWARE ENGINEERING</span>
-</div>
-<div class="flex justify-between items-center text-outline">
-<span class="">CLEARANCE:</span>
-<span class="text-secondary font-pixel text-[8.5px]">LEVEL 4 // FULL-ACCESS</span>
-</div>
-<div class="flex justify-between items-center text-outline">
-<span class="">STATUS:</span>
-<span class="inline-flex items-center gap-1.5 text-secondary">
-<span class="w-2 h-2 bg-secondary pixel-blink"></span> ONLINE / ACTIVE
-                  </span>
-</div>
-</div>
-<div class="relative z-10 flex items-center justify-between pt-2 border-t-2 border-[#1e293b]">
-<div class="flex items-center gap-1 bg-[#1e293b] p-1 border border-[#334155]">
-<div class="w-4 h-3 bg-secondary/80 border border-black"></div>
-<div class="w-1 h-3 bg-[#475569]"></div>
-<div class="w-2 h-3 bg-secondary/80 border border-black"></div>
-</div>
-<div class="flex flex-col items-end">
-<div class="flex gap-0.5 h-3.5 items-center">
-<span class="w-1 h-full bg-on-surface"></span>
-<span class="w-0.5 h-full bg-transparent"></span>
-<span class="w-2 h-full bg-on-surface"></span>
-<span class="w-0.5 h-full bg-transparent"></span>
-<span class="w-1 h-full bg-on-surface"></span>
-<span class="w-1.5 h-full bg-on-surface"></span>
-<span class="w-0.5 h-full bg-transparent"></span>
-<span class="w-2 h-full bg-on-surface"></span>
-<span class="w-1 h-full bg-on-surface"></span>
-</div>
-<span class="font-pixel text-[7px] text-outline mt-0.5">*8821-JGRS-SEC*</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</main>
+<main class="w-full flex-grow flex items-center justify-center px-margin-mobile md:px-margin max-w-[1320px] mx-auto relative z-20 py-4 sm:py-6 lg:py-8"><div class="w-full relative"><div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center"><!-- Left Column: Bio & Controls --><div class="lg:col-span-7 flex flex-col items-start space-y-4 sm:space-y-5"><div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0f172a] border-2 border-secondary/80 pixel-badge"><span class="w-2.5 h-2.5 bg-secondary"></span><span class="font-pixel text-[9px] sm:text-[10px] uppercase tracking-widest text-secondary" data-en="● AVAILABLE FOR PROJECTS / OPEN TO WORK" data-es="● DISPONIBLE PARA PROYECTOS / ABIERTO A TRABAJAR">● DISPONIBLE PARA PROYECTOS / ABIERTO A TRABAJAR</span></div><div class="space-y-3.5"><div class="font-silkscreen text-xs sm:text-[13px] uppercase tracking-wider text-primary">[ DEV PROFILE // ID: #JGRS-8821 ]</div><h1 class="font-pixel text-on-surface uppercase mb-2"><span class="block font-silkscreen text-xs sm:text-sm tracking-widest text-outline mb-2" data-en="HELLO, I'M" data-es="HOLA, SOY">HOLA, SOY</span><span class="block text-xl sm:text-[26px] lg:text-[28px] leading-relaxed tracking-wider text-primary underline decoration-4 decoration-primary/40">JOSE GUILLERMO</span><span class="block text-xl sm:text-[26px] lg:text-[28px] leading-relaxed tracking-wide text-on-surface mt-1">RODRIGUEZ SAMCAM</span></h1><div class="inline-block bg-[#122131] border-2 border-[#2c4900] px-3.5 py-2 mt-1"><span class="font-pixel text-xs sm:text-[14px] text-secondary uppercase tracking-wide" data-en="⚡ SOFTWARE DEVELOPMENT TECHNICIAN" data-es="⚡ TÉCNICO EN DESARROLLO DE SOFTWARE">⚡ TÉCNICO EN DESARROLLO DE SOFTWARE</span></div></div><p class="font-vt323 text-2xl lg:text-[25px] text-tertiary max-w-xl leading-relaxed tracking-wide" data-en="Software developer passionate about engineering robust systems, clean code, scalable architectures, and interactive digital experiences with absolute precision." data-es="Desarrollador de software apasionado por la creación de sistemas robustos, código limpio, arquitecturas escalables y experiencias digitales interactivas con absoluta precisión." style="text-align: justify; text-justify: inter-character; text-align-last: left; hyphens: auto; word-break: break-word; line-height: 1.5; margin-bottom: 14px;">Desarrollador de software apasionado por la creación de sistemas robustos, código limpio, arquitecturas escalables y experiencias digitales interactivas con absoluta precisión.</p><!-- Main Action Buttons --><div class="flex flex-wrap items-center gap-3.5 sm:gap-4 pt-1"><button class="inline-flex items-center gap-2 px-4 sm:px-5 py-3 bg-secondary text-on-secondary font-pixel text-[11px] sm:text-xs uppercase tracking-wider pixel-btn-lime border-2 border-[#2c4900] cursor-pointer" onclick="toggleContactModal(true)" type="button"><span class="" data-en="[ CONTACT ME &gt; ]" data-es="[ CONTACTARME &gt; ]">[ CONTACTARME &gt; ]</span></button><button class="inline-flex items-center gap-2 px-4 sm:px-5 py-3 bg-[#1e293b] text-secondary font-pixel text-[11px] sm:text-xs uppercase tracking-wider pixel-btn-dark border-2 border-secondary/60 hover:border-secondary hover:bg-[#122131] transition-all cursor-pointer shadow-[3px_3px_0px_#020617]" onclick="toggleProjectsModal(true)" type="button"><span class="text-base leading-none">🚀</span><span class="" data-en="[ VIEW PROJECTS ]" data-es="[ VER PROYECTOS ]">[ VER PROYECTOS ]</span></button><button class="inline-flex items-center gap-2 px-4 sm:px-5 py-3 bg-[#1e293b] text-on-surface font-pixel text-[11px] sm:text-xs uppercase tracking-wider pixel-btn-dark border-2 border-[#475569] hover:text-secondary hover:border-secondary transition-all cursor-pointer" onclick="toggleSkillsModal(true)" type="button"><span class="material-symbols-outlined text-base leading-none text-secondary">terminal</span><span class="" data-en="[ VIEW SKILLS ]" data-es="[ VER HABILIDADES ]">[ VER HABILIDADES ]</span></button><button class="inline-flex items-center gap-2 px-4 sm:px-5 py-3 bg-[#1e293b] text-on-surface font-pixel text-[11px] sm:text-xs uppercase tracking-wider pixel-btn-dark border-2 border-[#475569] hover:text-primary hover:border-primary transition-all cursor-pointer" onclick="toggleAboutModal(true)" type="button"><span class="text-base leading-none">👤</span><span class="" data-en="[ ABOUT ME ]" data-es="[ SOBRE MÍ ]">[ SOBRE MÍ ]</span></button></div><!-- Social Links (GitHub & LinkedIn) --><div class="w-full pt-1 flex items-center gap-3 sm:gap-4"><a aria-label="GitHub Profile" class="inline-flex items-center gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 bg-[#0f172a] border-2 border-secondary/80 text-secondary font-pixel text-[10px] sm:text-xs uppercase tracking-wider hover:border-secondary hover:bg-secondary/10 pixel-btn-dark shadow-[3px_3px_0px_#020617] transition-all cursor-pointer" href="https://github.com/Joguisam-gt" onclick="RetroAudio.playSelectSound()" rel="noopener noreferrer" target="_blank"><svg class="w-4 h-4 fill-current flex-shrink-0 text-secondary" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg><span class="" data-en="GITHUB // REPOS" data-es="GITHUB // REPOSITORIOS">GITHUB // REPOSITORIOS</span></a><a aria-label="LinkedIn Profile" class="inline-flex items-center gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 bg-[#0f172a] border-2 border-primary/80 text-primary font-pixel text-[10px] sm:text-xs uppercase tracking-wider hover:border-primary hover:bg-primary/10 pixel-btn-dark shadow-[3px_3px_0px_#020617] transition-all cursor-pointer" href="https://www.linkedin.com/in/jose-guillermo-rodriguez-samcam-b161481a6/?isSelfProfile=true" onclick="RetroAudio.playSelectSound()" rel="noopener noreferrer" target="_blank"><svg class="w-4 h-4 fill-current flex-shrink-0 text-primary" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path></svg><span class="" data-en="LINKEDIN // CONNECT" data-es="LINKEDIN // CONECTAR">LINKEDIN // CONECTAR</span></a></div><!-- Stats Bar --><div class="w-full pt-1.5"><div class="grid grid-cols-3 gap-3 sm:gap-4 p-3.5 sm:p-4 bg-[#0f172a] border-2 border-[#334155] pixel-box-primary"><div class="flex flex-col border-r-2 border-[#1e293b] pr-2.5"><span class="font-pixel text-[11px] sm:text-sm text-on-surface tracking-tight" data-en="FULL-STACK" data-es="FULL-STACK">FULL-STACK</span><span class="font-silkscreen text-[9px] uppercase tracking-wider text-outline mt-1" data-en="Dev Architecture" data-es="Arquitectura Dev">Arquitectura Dev</span></div><div class="flex flex-col border-r-2 border-[#1e293b] pr-2.5"><span class="font-pixel text-[11px] sm:text-sm text-secondary tracking-tight" data-en="CLEAN CODE" data-es="CÓDIGO LIMPIO">CÓDIGO LIMPIO</span><span class="font-silkscreen text-[9px] uppercase tracking-wider text-outline mt-1" data-en="Best Practices" data-es="Buenas Prácticas">Buenas Prácticas</span></div><div class="flex flex-col"><span class="font-pixel text-[11px] sm:text-sm text-primary tracking-tight" data-en="LVL 4" data-es="NIVEL 4">NIVEL 4</span><span class="font-silkscreen text-[9px] uppercase tracking-wider text-outline mt-1" data-en="Sec Clearance" data-es="Seguridad // Acceso">Seguridad // Acceso</span></div></div></div></div><!-- Right Column: ID Credential Badge con Foto Oficial --><div class="lg:col-span-5 relative flex items-center justify-center lg:justify-end mt-4 lg:mt-0"><div class="relative flex flex-col items-center w-full max-w-lg mx-auto lg:mr-0"><!-- Badge Lanyard Clips (Scaled) --><div class="flex flex-col items-center -mb-2 z-20"><div class="w-20 h-4 bg-[#1e293b] border-2 border-[#475569] pixel-badge flex items-center justify-center shadow-[2px_2px_0px_#000]"><div class="w-12 h-1.5 bg-black"></div></div><div class="w-5 h-6 bg-[#0f172a] border-2 border-[#475569] border-t-0 flex items-center justify-center"><div class="w-2 h-3.5 bg-secondary"></div></div></div><!-- Main ID Card Box --><div class="relative w-full bg-[#0d1c2d] border-4 border-[#334155] pixel-box-primary p-5 sm:p-6 flex flex-col justify-between overflow-hidden shadow-[8px_8px_0px_#020617]"><!-- Badge Header --><div class="relative z-10 flex items-center justify-between pb-3.5 border-b-2 border-[#1e293b]"><div class="flex items-center gap-2.5"><div class="w-5 h-5 bg-primary-container border-2 border-primary flex items-center justify-center shadow-[1px_1px_0px_#000]"><span class="font-pixel text-[8px] text-white">ID</span></div><span class="font-silkscreen text-xs text-on-surface font-bold tracking-wider" id="badge-top-title" data-en="COMPANY ID // TECH BADGE" data-es="CREDENCIAL // DISTINTIVO TÉCNICO">CREDENCIAL // DISTINTIVO TÉCNICO</span></div><span class="font-pixel text-[9px] text-secondary uppercase tracking-widest bg-[#122131] border border-secondary/50 px-2 py-0.5" data-en="DEV-SEC-2025" data-es="SEG-DEV-2025">SEG-DEV-2025</span></div><!-- Badge Photo & Name Container --><div class="relative z-10 my-3.5 flex flex-col items-center"><div class="relative p-1.5 bg-[#020617] border-4 border-[#475569] pixel-box-primary shadow-[4px_4px_0px_#020617]"><img alt="Jose Guillermo Rodriguez Samcam - Fotocheck Oficial" class="w-64 h-64 sm:w-80 sm:h-80 object-cover filter contrast-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0swEw5Bb7FiUtriXqq9jMyeC48pyrNWANAkCzaY-SE4xPZs1hEuPEMweZvuZJjmC4XNUHM93pTRvBQijCx5y2iDFv70FKGznh7_fR3AgMUixVNel9j2huimPJFwjqtdkuE-ACsH8uL9CYNssl185qsZIY9FrvVi0J6N2jPt9FYAAqkjjJeZ2KMvK2yS_PaKN7fwx5r23Y1Ek0dEwvz-oxYR73kKwFE6GdYsX8YVikJn_wiRejQEQYHD1xSHtwHSzz_8U"><div class="absolute inset-0 crt-overlay opacity-30 pointer-events-none"></div><div class="absolute top-2.5 right-2.5 px-2 py-1 bg-[#020617]/95 border border-secondary text-[9px] font-pixel text-secondary uppercase shadow-[2px_2px_0px_#000]" id="badge-auth-badge" data-en="AUTH" data-es="AUTORIZADO">AUTORIZADO</div><div class="absolute bottom-2.5 left-2.5 px-2.5 py-1 bg-primary-container/90 border border-primary text-[9px] font-silkscreen text-white uppercase shadow-[2px_2px_0px_#000]" id="badge-official-badge" data-en="OFFICIAL" data-es="OFICIAL">OFICIAL</div></div><div class="w-full text-center mt-3.5"><div class="font-silkscreen text-[10px] text-outline uppercase tracking-wider" id="badge-fullname-lbl" data-en="FULL NAME" data-es="NOMBRE COMPLETO">NOMBRE COMPLETO</div><h3 class="font-pixel text-sm sm:text-base text-on-surface uppercase tracking-normal leading-snug mt-1">Jose Guillermo Rodriguez Samcam</h3><div class="inline-block px-3 py-1 bg-[#122131] border border-secondary/60 mt-1.5 shadow-[2px_2px_0px_#000]"><span class="font-pixel text-[10px] text-secondary uppercase" data-en="⚡ SOFTWARE DEVELOPMENT TECHNICIAN" data-es="⚡ TÉCNICO EN DESARROLLO DE SOFTWARE">⚡ TÉCNICO EN DESARROLLO DE SOFTWARE</span></div></div></div><!-- Specs / Credentials Data Field --><div class="relative z-10 bg-[#020617] border-2 border-[#1e293b] p-3.5 sm:p-4 my-2.5 space-y-2 font-silkscreen text-xs"><div class="flex justify-between items-center text-outline"><span data-en="ID NUMBER:" data-es="N° IDENTIFICACIÓN:" class="">N° IDENTIFICACIÓN:</span><span class="text-primary font-pixel text-[10px]">#JGRS-8821</span></div><div class="flex justify-between items-center text-outline"><span data-en="DEPARTMENT:" data-es="DEPARTAMENTO:" class="">DEPARTAMENTO:</span><span class="text-on-surface font-semibold" data-en="SOFTWARE ENGINEERING" data-es="INGENIERÍA DE SOFTWARE">INGENIERÍA DE SOFTWARE</span></div><div class="flex justify-between items-center text-outline"><span data-en="CLEARANCE:" data-es="NIVEL DE ACCESO:" class="">NIVEL DE ACCESO:</span><span class="text-secondary font-pixel text-[10px]" data-en="LEVEL 4 // FULL-ACCESS" data-es="NIVEL 4 // ACCESO TOTAL">NIVEL 4 // ACCESO TOTAL</span></div><div class="flex justify-between items-center text-outline"><span data-en="STATUS:" data-es="ESTADO:" class="">ESTADO:</span><span class="inline-flex items-center gap-1.5 text-secondary font-semibold"><span class="w-2.5 h-2.5 bg-secondary"></span> <span data-en="ONLINE / ACTIVE" data-es="EN LÍNEA / ACTIVO" class="">EN LÍNEA / ACTIVO</span></span></div></div><!-- Badge Footer & Barcode --><div class="relative z-10 flex items-center justify-between pt-3 border-t-2 border-[#1e293b]"><div class="flex items-center gap-1.5 bg-[#1e293b] p-1.5 border border-[#334155]"><div class="w-5 h-3.5 bg-secondary/80 border border-black"></div><div class="w-1.5 h-3.5 bg-[#475569]"></div><div class="w-3 h-3.5 bg-secondary/80 border border-black"></div></div><div class="flex flex-col items-end"><div class="flex gap-0.5 h-4 items-center"><span class="w-1.5 h-full bg-on-surface"></span><span class="w-0.5 h-full bg-transparent"></span><span class="w-2.5 h-full bg-on-surface"></span><span class="w-0.5 h-full bg-transparent"></span><span class="w-1.5 h-full bg-on-surface"></span><span class="w-2 h-full bg-on-surface"></span><span class="w-0.5 h-full bg-transparent"></span><span class="w-2.5 h-full bg-on-surface"></span><span class="w-1.5 h-full bg-on-surface"></span></div><span class="font-pixel text-[8px] text-outline mt-1">*8821-JGRS-SEC*</span></div></div></div></div></div></div></div></main>
 <!-- Footer -->
 <footer class="w-full bg-[#020617]/95 border-t-2 border-[#1e293b] py-2.5 z-30">
 <div class="max-w-[1320px] mx-auto px-margin-mobile md:px-margin flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-vt323 text-outline">
 <div class="flex items-center gap-2 bg-[#0f172a] px-2.5 py-1 border border-[#334155]">
-<span class="w-2 h-2 bg-secondary pixel-blink"></span>
-<span class="font-pixel text-[8px] uppercase tracking-widest text-on-surface">Available for Q2/Q3 Tech Projects</span>
+<span class="w-2 h-2 bg-secondary"></span>
+<span class="font-pixel text-[8px] uppercase tracking-widest text-on-surface" data-en="Available for Q2/Q3 Tech Projects" data-es="Disponible para proyectos Tech Q2/Q3">Disponible para proyectos Tech Q2/Q3</span>
 </div>
-<p class="text-sm text-center sm:text-left">© 2025 Jose Guillermo Rodriguez Samcam. Técnico en desarrollo de software.</p>
-<div class="flex items-center gap-3 font-silkscreen text-[10px] text-outline">
-<button class="hover:text-secondary transition-colors uppercase bg-transparent border-0 cursor-pointer p-0 font-silkscreen text-[10px] text-outline" onclick="toggleSkillsModal(true)" type="button">[HABILIDADES]</button>
-<button class="hover:text-primary transition-colors uppercase bg-transparent border-0 cursor-pointer p-0 font-silkscreen text-[10px] text-outline" onclick="toggleAboutModal(true)" type="button">[SOBRE MÍ]</button>
-<button class="hover:text-secondary transition-colors uppercase bg-transparent border-0 cursor-pointer p-0 font-silkscreen text-[10px] text-outline" onclick="toggleContactModal(true)" type="button">[CONTACTO]</button>
-</div>
+<p class="text-sm text-center sm:text-left" data-en="© 2025 Jose Guillermo Rodriguez Samcam. Software development technician." data-es="© 2025 Jose Guillermo Rodriguez Samcam. Técnico en desarrollo de software." id="footer-copyright-text">© 2025 Jose Guillermo Rodriguez Samcam. Técnico en desarrollo de software.</p>
+<div class="flex items-center gap-3 font-silkscreen text-[10px] text-outline"><button class="hover:text-secondary transition-colors uppercase bg-transparent border-0 cursor-pointer p-0 font-silkscreen text-[10px] text-outline" data-en="[PROJECTS]" data-es="[PROYECTOS]" id="nav-footer-projects" onclick="toggleProjectsModal(true)" type="button">[PROYECTOS]</button><button class="hover:text-secondary transition-colors uppercase bg-transparent border-0 cursor-pointer p-0 font-silkscreen text-[10px] text-outline" data-en="[SKILLS]" data-es="[HABILIDADES]" id="nav-footer-skills" onclick="toggleSkillsModal(true)" type="button">[HABILIDADES]</button><button class="hover:text-primary transition-colors uppercase bg-transparent border-0 cursor-pointer p-0 font-silkscreen text-[10px] text-outline" data-en="[ABOUT ME]" data-es="[SOBRE MÍ]" id="nav-footer-about" onclick="toggleAboutModal(true)" type="button">[SOBRE MÍ]</button><button class="hover:text-secondary transition-colors uppercase bg-transparent border-0 cursor-pointer p-0 font-silkscreen text-[10px] text-outline" data-en="[CONTACT]" data-es="[CONTACTO]" id="nav-footer-contact" onclick="toggleContactModal(true)" type="button">[CONTACTO]</button></div>
 </div>
 </footer>
-<!-- ================= MODAL: HABILIDADES (SKILLS ARSENAL) ================= -->
-<div aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/85 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-150" id="skills-modal" role="dialog">
+<!-- ================= MODAL: PROYECTOS DESTACADOS // PORTFOLIO SHOWCASE ================= -->
+<div aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/85 backdrop-blur-sm transition-opacity duration-150 opacity-0 pointer-events-none" id="projects-modal" role="dialog" onclick="if(event.target === this){ toggleProjectsModal(false); document.querySelectorAll('.project-card').forEach(c=&gt;c.style.display=''); document.querySelectorAll('.project-tab-btn').forEach(b=&gt;{b.classList.remove('bg-secondary','text-on-secondary');b.classList.add('bg-[#1e293b]','text-on-surface');}); }">
 <div class="fixed inset-0 crt-overlay opacity-30 pointer-events-none"></div>
-<div class="relative w-full max-w-4xl max-h-[92vh] flex flex-col bg-[#071322] border-4 border-[#334155] pixel-box-primary shadow-[8px_8px_0px_#020617] overflow-hidden z-10" id="skills-modal-dialog">
+<div class="relative w-full max-w-5xl max-h-[92vh] flex flex-col bg-[#071322] border-4 border-[#334155] pixel-box-primary shadow-[8px_8px_0px_#020617] overflow-hidden z-10 animate-modal-pop" id="projects-modal-dialog">
 <!-- Window Titlebar -->
+<div class="bg-[#0f172a] border-b-4 border-[#334155] px-3 sm:px-4 py-2 flex items-center justify-between select-none"><div class="flex items-center gap-2"><span class="inline-block w-2.5 h-2.5 bg-secondary"></span><span class="font-pixel text-[9px] sm:text-[11px] text-secondary uppercase tracking-wider" data-en="[DIR: /DEV/PROJECTS] REPOSITORIES &amp; PROJECTS // JOSE GUILLERMO" data-es="[DIR: /DEV/PROJECTS] REPOSITORIOS Y PROYECTOS // JOSE GUILLERMO">[DIR: /DEV/PROJECTS] REPOSITORIOS Y PROYECTOS // JOSE GUILLERMO</span></div><div class="flex items-center gap-2"><span class="hidden sm:inline font-vt323 text-lg text-outline" data-en="STATUS: 6 ACTIVE REPOSITORIES" data-es="STATUS: 6 REPOSITORIOS ACTIVOS">STATUS: 6 REPOSITORIOS ACTIVOS</span><button aria-label="Cerrar modal" class="px-2.5 py-0.5 bg-[#ef4444] text-white hover:bg-[#dc2626] font-pixel text-[10px] border-2 border-[#7f1d1d] shadow-[2px_2px_0px_#000] cursor-pointer" onclick="toggleProjectsModal(false); if(typeof resetProjectsView==='function'){resetProjectsView();}else{document.querySelectorAll('.project-card').forEach(c=&gt;c.style.display=''); document.querySelectorAll('.project-tab-btn').forEach(b=&gt;{b.classList.remove('bg-secondary','text-on-secondary');b.classList.add('bg-[#1e293b]','text-on-surface');});}" type="button">[ X ]</button></div></div>
+<!-- Category Filter Tabs -->
+<div class="flex flex-wrap items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2.5 bg-[#020617] border-b-2 border-[#1e293b]"><span class="font-silkscreen text-[10px] text-outline uppercase mr-1" data-en="FILTER:" data-es="FILTER:">FILTER:</span><button class="project-tab-btn px-2.5 py-1 font-silkscreen text-[10px] uppercase border border-[#334155] hover:border-secondary hover:text-secondary shadow-[2px_2px_0px_#000] cursor-pointer bg-[#1e293b] text-on-surface" data-en="[BACKEND]" data-es="[BACKEND]" onclick="filterProjects('backend', event)" type="button">[BACKEND]</button><button class="project-tab-btn px-2.5 py-1 font-silkscreen text-[10px] uppercase border border-[#334155] hover:border-secondary hover:text-secondary shadow-[2px_2px_0px_#000] cursor-pointer bg-[#1e293b] text-on-surface" data-en="[DATABASE]" data-es="[BASE DE DATOS]" onclick="filterProjects('database', event)" type="button">[BASE DE DATOS]</button><button class="project-tab-btn px-2.5 py-1 font-silkscreen text-[10px] uppercase border border-[#334155] hover:border-secondary hover:text-secondary shadow-[2px_2px_0px_#000] cursor-pointer bg-[#1e293b] text-on-surface" data-en="[FRONTEND]" data-es="[FRONTEND]" onclick="filterProjects('frontend', event)" type="button">[FRONTEND]</button><button class="project-tab-btn px-2.5 py-1 font-silkscreen text-[10px] uppercase border border-[#334155] hover:border-secondary hover:text-secondary shadow-[2px_2px_0px_#000] cursor-pointer bg-[#1e293b] text-on-surface" data-en="[PYTHON]" data-es="[PYTHON]" onclick="filterProjects('python', event)" type="button">[PYTHON]</button></div>
+<!-- Modal Content Body -->
+<div class="p-3 sm:p-5 overflow-y-auto max-h-[calc(92vh-135px)] space-y-4">
+<!-- Projects Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch" id="projects-grid-container"><!-- Proyecto 1: Campus Inventario Gamer --><div class="project-card bg-[#0f172a] border-2 border-[#334155] p-4 sm:p-5 shadow-[4px_4px_0px_#020617] flex flex-col h-full justify-between" data-category="backend database"><div class="flex flex-col flex-grow"><div class="flex items-center justify-between pb-2.5 border-b border-[#1e293b] mb-3"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 bg-secondary"></span><span class="font-pixel text-[11px] text-on-surface uppercase tracking-wide">01 // CAMPUS INVENTARIO GAMER</span></div></div><div class="flex items-center justify-between mb-2.5"><span class="font-silkscreen text-[11px] text-[#38bdf8] uppercase font-bold">FULL BACKEND / API REST</span><span class="font-pixel text-[8px] text-secondary bg-[#122131] border border-secondary/60 px-2 py-0.5" data-en="[ COMPLETED ]" data-es="[ COMPLETADO ]">[ COMPLETADO ]</span></div><div class="flex-grow mb-3.5"><p class="font-vt323 text-xl text-tertiary leading-relaxed text-justify" data-en="Comprehensive backend architecture and system for gamer inventory management, implementing routes, controllers, and data schemas with ExpressJS, NodeJS, and MongoDB." data-es="Sistema y arquitectura backend integral para la gestión de inventario gamer, implementando rutas, controladores y esquemas de datos con ExpressJS, NodeJS y MongoDB.">Sistema y arquitectura backend integral para la gestión de inventario gamer, implementando rutas, controladores y esquemas de datos con ExpressJS, NodeJS y MongoDB.</p></div><div class="flex flex-wrap gap-2 mb-3.5"><span class="px-2.5 py-1 bg-[#020617] border border-secondary/50 font-silkscreen text-[10px] text-secondary">EXPRESSJS</span><span class="px-2.5 py-1 bg-[#020617] border border-[#38bdf8]/50 font-silkscreen text-[10px] text-[#38bdf8]">NODEJS</span><span class="px-2.5 py-1 bg-[#020617] border border-[#4ade80]/50 font-silkscreen text-[10px] text-[#4ade80]">MONGODB</span></div><div class="grid grid-cols-2 gap-2.5 bg-[#020617] border border-[#1e293b] p-3 mb-3.5 font-silkscreen text-[9px]"><div><span class="text-outline block" data-en="FOCUS:" data-es="ENFOQUE:">ENFOQUE:</span><span class="text-secondary font-pixel text-[8.5px]" data-en="REST ROUTES &amp; LOGIC" data-es="CONTROL &amp; RUTAS REST">CONTROL &amp; RUTAS REST</span></div><div><span class="text-outline block" data-en="STORAGE:" data-es="STORAGE:">STORAGE:</span><span class="text-primary font-pixel text-[8.5px]">MONGODB SCHEMAS</span></div></div></div><div class="flex flex-col gap-2 pt-2.5 border-t border-[#1e293b] mt-auto"><a class="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2.5 bg-secondary text-on-secondary font-pixel text-[9.5px] uppercase pixel-btn-lime border-2 border-[#2c4900] transition-all" href="https://github.com/Joguisam-gt/campus-inventario-gamer" onclick="RetroAudio.playSelectSound()" rel="noopener noreferrer" target="_blank"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg><span class="" data-en="[ GITHUB REPOSITORY ]" data-es="[ REPOSITORIO GITHUB ]">[ REPOSITORIO GITHUB ]</span></a></div></div><!-- Proyecto 2: Proyecto MongoDB II --><div class="project-card bg-[#0f172a] border-2 border-[#334155] p-4 sm:p-5 shadow-[4px_4px_0px_#020617] flex flex-col h-full justify-between" data-category="database backend"><div class="flex flex-col flex-grow"><div class="flex items-center justify-between pb-2.5 border-b border-[#1e293b] mb-3"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 bg-primary"></span><span class="font-pixel text-[11px] text-on-surface uppercase tracking-wide">02 // PROYECTO MONGODB II</span></div></div><div class="flex items-center justify-between mb-2.5"><span class="font-silkscreen text-[11px] text-primary uppercase font-bold">BASE DE DATOS NOSQL</span><span class="font-pixel text-[8px] text-secondary bg-[#122131] border border-secondary/60 px-2 py-0.5" data-en="[ COMPLETED ]" data-es="[ COMPLETADO ]">[ COMPLETADO ]</span></div><div class="flex-grow mb-3.5"><p class="font-vt323 text-xl text-tertiary leading-relaxed text-justify" data-en="Project focused on advanced non-relational database modeling, complex aggregations, and optimized data manipulation in MongoDB with JavaScript." data-es="Proyecto enfocado en modelado avanzado de bases de datos no relacionales, agregaciones complejas y manipulación de datos optimizada en MongoDB con JavaScript.">Proyecto enfocado en modelado avanzado de bases de datos no relacionales, agregaciones complejas y manipulación de datos optimizada en MongoDB con JavaScript.</p></div><div class="flex flex-wrap gap-2 mb-3.5"><span class="px-2.5 py-1 bg-[#020617] border border-[#4ade80]/50 font-silkscreen text-[10px] text-[#4ade80]">MONGODB</span><span class="px-2.5 py-1 bg-[#020617] border border-primary/50 font-silkscreen text-[10px] text-primary">NOSQL</span><span class="px-2.5 py-1 bg-[#020617] border border-[#f59e0b]/50 font-silkscreen text-[10px] text-[#f59e0b]">JAVASCRIPT</span></div><div class="grid grid-cols-2 gap-2.5 bg-[#020617] border border-[#1e293b] p-3 mb-3.5 font-silkscreen text-[9px]"><div><span class="text-outline block" data-en="OPERATIONS:" data-es="OPERACIONES:">OPERACIONES:</span><span class="text-secondary font-pixel text-[8.5px]">AGGREGATION PIPELINES</span></div><div><span class="text-outline block" data-en="ARCHITECTURE:" data-es="ARQUITECTURA:">ARQUITECTURA:</span><span class="text-primary font-pixel text-[8.5px]">DOCUMENTS / COLLECTIONS</span></div></div></div><div class="flex flex-col gap-2 pt-2.5 border-t border-[#1e293b] mt-auto"><a class="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2.5 bg-secondary text-on-secondary font-pixel text-[9.5px] uppercase pixel-btn-lime border-2 border-[#2c4900] transition-all" href="https://github.com/Joguisam-gt/Proyecto_MongoDBII_RodriguezJose" onclick="RetroAudio.playSelectSound()" rel="noopener noreferrer" target="_blank"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg><span class="" data-en="[ GITHUB REPOSITORY ]" data-es="[ REPOSITORIO GITHUB ]">[ REPOSITORIO GITHUB ]</span></a></div></div><!-- Proyecto 3: Proyecto Conciertos --><div class="project-card bg-[#0f172a] border-2 border-[#334155] p-4 sm:p-5 shadow-[4px_4px_0px_#020617] flex flex-col h-full justify-between" data-category="frontend"><div class="flex flex-col flex-grow"><div class="flex items-center justify-between pb-2.5 border-b border-[#1e293b] mb-3"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 bg-[#f59e0b]"></span><span class="font-pixel text-[11px] text-on-surface uppercase tracking-wide">03 // PROYECTO CONCIERTOS</span></div></div><div class="flex items-center justify-between mb-2.5"><span class="font-silkscreen text-[11px] text-[#f59e0b] uppercase font-bold">FRONTEND WEB</span><span class="font-pixel text-[8px] text-secondary bg-[#122131] border border-secondary/60 px-2 py-0.5" data-en="[ COMPLETED ]" data-es="[ COMPLETADO ]">[ COMPLETADO ]</span></div><div class="flex-grow mb-3.5"><p class="font-vt323 text-xl text-tertiary leading-relaxed text-justify" data-en="Interactive web application for managing and booking concerts and events, built with vanilla JavaScript, semantic HTML5 structure, and modern CSS3 styles." data-es="Aplicación web interactiva para gestión y reserva de conciertos y eventos, desarrollada con JavaScript nativo, estructura semántica HTML5 y estilos modernos en CSS3.">Aplicación web interactiva para gestión y reserva de conciertos y eventos, desarrollada con JavaScript nativo, estructura semántica HTML5 y estilos modernos en CSS3.</p></div><div class="flex flex-wrap gap-2 mb-3.5"><span class="px-2.5 py-1 bg-[#020617] border border-[#f59e0b]/50 font-silkscreen text-[10px] text-[#f59e0b]">JAVASCRIPT</span><span class="px-2.5 py-1 bg-[#020617] border border-[#e34f26]/50 font-silkscreen text-[10px] text-[#e34f26]">HTML5</span><span class="px-2.5 py-1 bg-[#020617] border border-[#264de4]/50 font-silkscreen text-[10px] text-[#264de4]">CSS3</span></div><div class="grid grid-cols-2 gap-2.5 bg-[#020617] border border-[#1e293b] p-3 mb-3.5 font-silkscreen text-[9px]"><div><span class="text-outline block" data-en="INTERFACE:" data-es="INTERFAZ:">INTERFAZ:</span><span class="text-secondary font-pixel text-[8.5px]">VANILLA JS DOM DYNAMICS</span></div><div><span class="text-outline block" data-en="STYLING:" data-es="ESTILOS:">ESTILOS:</span><span class="text-primary font-pixel text-[8.5px]">RESPONSIVE CSS3 UI</span></div></div></div><div class="flex flex-col gap-2 pt-2.5 border-t border-[#1e293b] mt-auto"><a class="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2.5 bg-secondary text-on-secondary font-pixel text-[9.5px] uppercase pixel-btn-lime border-2 border-[#2c4900] transition-all" href="https://github.com/Joguisam-gt/Proyecto_Conciertos_RodriguezJose" onclick="RetroAudio.playSelectSound()" rel="noopener noreferrer" target="_blank"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg><span class="" data-en="[ GITHUB REPOSITORY ]" data-es="[ REPOSITORIO GITHUB ]">[ REPOSITORIO GITHUB ]</span></a></div></div><!-- Proyecto 4: Portafolio Freelance CLI --><div class="project-card bg-[#0f172a] border-2 border-[#334155] p-4 sm:p-5 shadow-[4px_4px_0px_#020617] flex flex-col h-full justify-between" data-category="backend database cli"><div class="flex flex-col flex-grow"><div class="flex items-center justify-between pb-2.5 border-b border-[#1e293b] mb-3"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 bg-secondary"></span><span class="font-pixel text-[11px] text-on-surface uppercase tracking-wide">04 // PORTAFOLIO FREELANCE CLI</span></div></div><div class="flex items-center justify-between mb-2.5"><span class="font-silkscreen text-[11px] text-[#38bdf8] uppercase font-bold">CLI / BACKEND / TERMINAL</span><span class="font-pixel text-[8px] text-secondary bg-[#122131] border border-secondary/60 px-2 py-0.5" data-en="[ COMPLETED ]" data-es="[ COMPLETADO ]">[ COMPLETADO ]</span></div><div class="flex-grow mb-3.5"><p class="font-vt323 text-xl text-tertiary leading-relaxed text-justify" data-en="Interactive portfolio executed entirely from the command line interface (CLI), compatible with PowerShell, Bash, and GitBash." data-es="Portafolio interactivo ejecutado completamente desde la línea de comandos (CLI) compatible con PowerShell, Bash y GitBash del sistema operativo.">Portafolio interactivo ejecutado completamente desde la línea de comandos (CLI) compatible con PowerShell, Bash y GitBash del sistema operativo.</p></div><div class="flex flex-wrap gap-2 mb-3.5"><span class="px-2.5 py-1 bg-[#020617] border border-[#38bdf8]/50 font-silkscreen text-[10px] text-[#38bdf8]">NODEJS</span><span class="px-2.5 py-1 bg-[#020617] border border-secondary/50 font-silkscreen text-[10px] text-secondary">EXPRESSJS</span><span class="px-2.5 py-1 bg-[#020617] border border-[#4ade80]/50 font-silkscreen text-[10px] text-[#4ade80]">MONGODB</span><span class="px-2.5 py-1 bg-[#020617] border border-primary/50 font-silkscreen text-[10px] text-primary">CLI ARCHITECTURE</span></div><div class="grid grid-cols-2 gap-2.5 bg-[#020617] border border-[#1e293b] p-3 mb-3.5 font-silkscreen text-[9px]"><div><span class="text-outline block" data-en="INTERFACE:" data-es="INTERFAZ:">INTERFAZ:</span><span class="text-secondary font-pixel text-[8.5px]">TERMINAL / BASH / POWERSHELL</span></div><div><span class="text-outline block" data-en="STORAGE:" data-es="STORAGE:">STORAGE:</span><span class="text-primary font-pixel text-[8.5px]">MONGODB ATLAS</span></div></div></div><div class="flex flex-col gap-2 pt-2.5 border-t border-[#1e293b] mt-auto"><a class="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2.5 bg-secondary text-on-secondary font-pixel text-[9.5px] uppercase pixel-btn-lime border-2 border-[#2c4900] transition-all" href="https://github.com/Joguisam-gt/Portafolio-Freelance-CLI" onclick="RetroAudio.playSelectSound()" rel="noopener noreferrer" target="_blank"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg><span class="" data-en="[ GITHUB REPOSITORY ]" data-es="[ REPOSITORIO GITHUB ]">[ REPOSITORIO GITHUB ]</span></a></div></div><!-- Proyecto 5: Gestor de Autos --><div class="project-card bg-[#0f172a] border-2 border-[#334155] p-4 sm:p-5 shadow-[4px_4px_0px_#020617] flex flex-col h-full justify-between" data-category="backend python"><div class="flex flex-col flex-grow"><div class="flex items-center justify-between pb-2.5 border-b border-[#1e293b] mb-3"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 bg-primary"></span><span class="font-pixel text-[11px] text-on-surface uppercase tracking-wide">05 // GESTOR DE AUTOS</span></div></div><div class="flex items-center justify-between mb-2.5"><span class="font-silkscreen text-[11px] text-primary uppercase font-bold">PYTHON CORE / BACKEND</span><span class="font-pixel text-[8px] text-secondary bg-[#122131] border border-secondary/60 px-2 py-0.5" data-en="[ COMPLETED ]" data-es="[ COMPLETADO ]">[ COMPLETADO ]</span></div><div class="flex-grow mb-3.5"><p class="font-vt323 text-xl text-tertiary leading-relaxed text-justify" data-en="Integral management system built in pure Python for inventory control, vehicle logging, and data tracking." data-es="Sistema integral desarrollado en Python puro para la gestión, control y registro de inventario de vehículos.">Sistema integral desarrollado en Python puro para la gestión, control y registro de inventario de vehículos.</p></div><div class="flex flex-wrap gap-2 mb-3.5"><span class="px-2.5 py-1 bg-[#020617] border border-[#38bdf8]/50 font-silkscreen text-[10px] text-[#38bdf8]">PYTHON</span><span class="px-2.5 py-1 bg-[#020617] border border-secondary/50 font-silkscreen text-[10px] text-secondary" data-en="BASIC CRUD / MGMT" data-es="GESTIÓN BÁSICA">GESTIÓN BÁSICA</span><span class="px-2.5 py-1 bg-[#020617] border border-[#f59e0b]/50 font-silkscreen text-[10px] text-[#f59e0b]">CLI DATA</span></div><div class="grid grid-cols-2 gap-2.5 bg-[#020617] border border-[#1e293b] p-3 mb-3.5 font-silkscreen text-[9px]"><div><span class="text-outline block" data-en="FOCUS:" data-es="ENFOQUE:">ENFOQUE:</span><span class="text-secondary font-pixel text-[8.5px]" data-en="CORE / SEQUENTIAL CODE" data-es="CÓDIGO BÁSICO / SECUENCIAL">CÓDIGO BÁSICO / SECUENCIAL</span></div><div><span class="text-outline block" data-en="ENVIRONMENT:" data-es="ENTORNO:">ENTORNO:</span><span class="text-primary font-pixel text-[8.5px]">PYTHON 3 RUNTIME</span></div></div></div><div class="flex flex-col gap-2 pt-2.5 border-t border-[#1e293b] mt-auto"><a class="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2.5 bg-secondary text-on-secondary font-pixel text-[9.5px] uppercase pixel-btn-lime border-2 border-[#2c4900] transition-all" href="https://github.com/Joguisam-gt/gestor_autos" onclick="RetroAudio.playSelectSound()" rel="noopener noreferrer" target="_blank"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg><span class="" data-en="[ GITHUB REPOSITORY ]" data-es="[ REPOSITORIO GITHUB ]">[ REPOSITORIO GITHUB ]</span></a></div></div><!-- Proyecto 6: Blockchain Revolution --><div class="project-card bg-[#0f172a] border-2 border-[#334155] p-4 sm:p-5 shadow-[4px_4px_0px_#020617] flex flex-col h-full justify-between" data-category="frontend web"><div class="flex flex-col flex-grow"><div class="flex items-center justify-between pb-2.5 border-b border-[#1e293b] mb-3"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 bg-[#f59e0b]"></span><span class="font-pixel text-[11px] text-on-surface uppercase tracking-wide">06 // BLOCKCHAIN REVOLUTION</span></div></div><div class="flex items-center justify-between mb-2.5"><span class="font-silkscreen text-[11px] text-[#f59e0b] uppercase font-bold">FRONTEND WEB / BEM</span><span class="font-pixel text-[8px] text-secondary bg-[#122131] border border-secondary/60 px-2 py-0.5" data-en="[ COMPLETED ]" data-es="[ COMPLETADO ]">[ COMPLETADO ]</span></div><div class="flex-grow mb-3.5"><p class="font-vt323 text-xl text-tertiary leading-relaxed text-justify" data-en="Web project developed with semantic HTML5 and pure CSS3 using BEM methodology (Block Element Modifier) for scalable CSS architecture and sleek layouts." data-es="Proyecto web desarrollado con HTML5 semántico y CSS3 puro implementando la metodología BEM (Block Element Modifier) para una arquitectura escalable de estilos y layouts limpios.">Proyecto web desarrollado con HTML5 semántico y CSS3 puro implementando la metodología BEM (Block Element Modifier) para una arquitectura escalable de estilos y layouts limpios.</p></div><div class="flex flex-wrap gap-2 mb-3.5"><span class="px-2.5 py-1 bg-[#020617] border border-[#e34f26]/50 font-silkscreen text-[10px] text-[#e34f26]">HTML5 SEMÁNTICO</span><span class="px-2.5 py-1 bg-[#020617] border border-[#264de4]/50 font-silkscreen text-[10px] text-[#264de4]">CSS3</span><span class="px-2.5 py-1 bg-[#020617] border border-primary/50 font-silkscreen text-[10px] text-primary">METODOLOGÍA BEM</span><span class="px-2.5 py-1 bg-[#020617] border border-secondary/50 font-silkscreen text-[10px] text-secondary">RESPONSIVE WEB</span></div><div class="grid grid-cols-2 gap-2.5 bg-[#020617] border border-[#1e293b] p-3 mb-3.5 font-silkscreen text-[9px]"><div><span class="text-outline block" data-en="ARCHITECTURE:" data-es="ARQUITECTURA:">ARQUITECTURA:</span><span class="text-secondary font-pixel text-[8.5px]">BEM METHODOLOGY</span></div><div><span class="text-outline block" data-en="DESIGN:" data-es="DISEÑO:">DISEÑO:</span><span class="text-primary font-pixel text-[8.5px]">PURE CSS3 RESPONSIVE</span></div></div></div><div class="flex flex-col gap-2 pt-2.5 border-t border-[#1e293b] mt-auto"><a class="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2.5 bg-secondary text-on-secondary font-pixel text-[9.5px] uppercase pixel-btn-lime border-2 border-[#2c4900] transition-all" href="https://github.com/Joguisam-gt/Blockchain-revolution" onclick="RetroAudio.playSelectSound()" rel="noopener noreferrer" target="_blank"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg><span class="" data-en="[ GITHUB REPOSITORY ]" data-es="[ REPOSITORIO GITHUB ]">[ REPOSITORIO GITHUB ]</span></a></div></div></div>
+</div>
+<!-- Modal Footer Status -->
+<div class="bg-[#0f172a] border-t-2 border-[#1e293b] px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-secondary pixel-blink"></span>
+<span class="font-vt323 text-lg text-secondary">DEV REPO: github.com/Joguisam-gt</span>
+</div>
+<div class="flex items-center gap-3"><button class="font-pixel text-[9px] uppercase px-3 py-1 bg-secondary text-on-secondary pixel-btn-lime border border-[#2c4900] cursor-pointer" data-en="[ CONTACT FOR PROJECT ]" data-es="[ CONTACTAR PARA PROYECTO ]" onclick="toggleProjectsModal(false); document.querySelectorAll('.project-card').forEach(c=&gt;c.style.display=''); document.querySelectorAll('.project-tab-btn').forEach(b=&gt;{b.classList.remove('bg-secondary','text-on-secondary');b.classList.add('bg-[#1e293b]','text-on-surface');}); toggleContactModal(true);" type="button">[ CONTACTAR PARA PROYECTO ]</button></div>
+</div>
+</div>
+</div>
+<!-- ================= MODAL: HABILIDADES (SKILLS ARSENAL) ================= -->
+<div aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/85 backdrop-blur-sm transition-opacity duration-150 opacity-0 pointer-events-none" id="skills-modal" role="dialog" onclick="if(event.target === this){ toggleSkillsModal(false); const va=document.getElementById('view-all');if(va)va.classList.remove('hidden');['view-frontend','view-backend','view-tools','view-practices'].forEach(id=&gt;{const el=document.getElementById(id);if(el)el.classList.add('hidden');});document.querySelectorAll('.skill-tab-btn').forEach(b=&gt;{b.classList.remove('bg-secondary','text-on-secondary');b.classList.add('bg-[#1e293b]','text-on-surface');}); }">
+<div class="fixed inset-0 crt-overlay opacity-30 pointer-events-none"></div>
+<div class="relative w-full max-w-4xl max-h-[92vh] flex flex-col bg-[#071322] border-4 border-[#334155] pixel-box-primary shadow-[8px_8px_0px_#020617] overflow-hidden z-10 animate-modal-pop" id="skills-modal-dialog"><!-- Window Titlebar -->
 <div class="bg-[#0f172a] border-b-4 border-[#334155] px-3 sm:px-4 py-2 flex items-center justify-between select-none">
 <div class="flex items-center gap-2">
-<span class="inline-block w-2.5 h-2.5 bg-secondary pixel-blink"></span>
-<span class="font-pixel text-[9px] sm:text-[11px] text-secondary uppercase tracking-wider">[ SKILLS &amp; TECH ARSENAL // JOSE GUILLERMO ]</span>
+<span class="inline-block w-2.5 h-2.5 bg-secondary"></span>
+<span class="font-pixel text-[9px] sm:text-[11px] text-secondary uppercase tracking-wider" data-en="[ SKILLS &amp; TECH ARSENAL // JOSE GUILLERMO ]" data-es="[ ARSENAL TÉCNICO &amp; HABILIDADES // JOSE GUILLERMO ]">[ ARSENAL TÉCNICO &amp; HABILIDADES // JOSE GUILLERMO ]</span>
 </div>
 <div class="flex items-center gap-2">
-<span class="hidden sm:inline font-vt323 text-lg text-outline">STATUS: READY</span>
-<button aria-label="Cerrar modal" class="px-2.5 py-0.5 bg-[#ef4444] text-white hover:bg-[#dc2626] font-pixel text-[10px] border-2 border-[#7f1d1d] shadow-[2px_2px_0px_#000] cursor-pointer" onclick="toggleSkillsModal(false)" type="button">
-            [ X ]
-          </button>
-</div>
+<span class="hidden sm:inline font-vt323 text-lg text-outline" data-en="STATUS: READY" data-es="ESTADO: LISTO">ESTADO: LISTO</span>
+
+<button aria-label="Cerrar modal" class="px-2.5 py-0.5 bg-[#ef4444] text-white hover:bg-[#dc2626] font-pixel text-[10px] border-2 border-[#7f1d1d] shadow-[2px_2px_0px_#000] cursor-pointer" onclick="toggleSkillsModal(false); if(typeof resetSkillsView==='function'){resetSkillsView();}else{const va=document.getElementById('view-all');if(va)va.classList.remove('hidden');['view-frontend','view-backend','view-tools','view-practices'].forEach(id=&gt;{const el=document.getElementById(id);if(el)el.classList.add('hidden');});document.querySelectorAll('.skill-tab-btn').forEach(b=&gt;{b.classList.remove('bg-secondary','text-on-secondary');b.classList.add('bg-[#1e293b]','text-on-surface');});}" type="button">[ X ]</button></div>
 </div>
 <!-- Category Filter Tabs -->
 <div class="flex flex-wrap items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2.5 bg-[#020617] border-b-2 border-[#1e293b]">
-<span class="font-silkscreen text-[10px] text-outline uppercase mr-1">FILTER:</span>
-<button class="skill-tab-btn active px-2.5 py-1 font-silkscreen text-[10px] uppercase bg-secondary text-on-secondary border border-[#2c4900] shadow-[2px_2px_0px_#000] cursor-pointer" onclick="filterSkills('all', event)" type="button">ALL</button>
-<button class="skill-tab-btn px-2.5 py-1 font-silkscreen text-[10px] uppercase bg-[#1e293b] text-on-surface border border-[#334155] hover:border-secondary hover:text-secondary shadow-[2px_2px_0px_#000] cursor-pointer" onclick="filterSkills('frontend', event)" type="button">FRONTEND</button>
-<button class="skill-tab-btn px-2.5 py-1 font-silkscreen text-[10px] uppercase bg-[#1e293b] text-on-surface border border-[#334155] hover:border-secondary hover:text-secondary shadow-[2px_2px_0px_#000] cursor-pointer" onclick="filterSkills('backend', event)" type="button">BACKEND</button>
-<button class="skill-tab-btn px-2.5 py-1 font-silkscreen text-[10px] uppercase bg-[#1e293b] text-on-surface border border-[#334155] hover:border-secondary hover:text-secondary shadow-[2px_2px_0px_#000] cursor-pointer" onclick="filterSkills('tools', event)" type="button">DATABASE &amp; TOOLS</button>
-<button class="skill-tab-btn px-2.5 py-1 font-silkscreen text-[10px] uppercase bg-[#1e293b] text-on-surface border border-[#334155] hover:border-secondary hover:text-secondary shadow-[2px_2px_0px_#000] cursor-pointer" onclick="filterSkills('practices', event)" type="button">METODOLOGÍAS</button>
+<span class="font-silkscreen text-[10px] text-outline uppercase mr-1" data-en="FILTER:" data-es="FILTRO:">FILTRO:</span>
+
+<button class="skill-tab-btn px-2.5 py-1 font-silkscreen text-[10px] uppercase bg-[#1e293b] text-on-surface border border-[#334155] hover:border-secondary hover:text-secondary shadow-[2px_2px_0px_#000] cursor-pointer" data-en="FRONTEND" data-es="FRONTEND" onclick="filterSkills('frontend', event)" type="button">FRONTEND</button>
+<button class="skill-tab-btn px-2.5 py-1 font-silkscreen text-[10px] uppercase bg-[#1e293b] text-on-surface border border-[#334155] hover:border-secondary hover:text-secondary shadow-[2px_2px_0px_#000] cursor-pointer" data-en="BACKEND" data-es="BACKEND" onclick="filterSkills('backend', event)" type="button">BACKEND</button>
+<button class="skill-tab-btn px-2.5 py-1 font-silkscreen text-[10px] uppercase bg-[#1e293b] text-on-surface border border-[#334155] hover:border-secondary hover:text-secondary shadow-[2px_2px_0px_#000] cursor-pointer" data-en="DATABASE &amp; TOOLS" data-es="BASE DE DATOS &amp; HERRAMIENTAS" onclick="filterSkills('tools', event)" type="button">BASE DE DATOS &amp; HERRAMIENTAS</button>
+<button class="skill-tab-btn px-2.5 py-1 font-silkscreen text-[10px] uppercase bg-[#1e293b] text-on-surface border border-[#334155] hover:border-secondary hover:text-secondary shadow-[2px_2px_0px_#000] cursor-pointer" data-en="METHODOLOGIES" data-es="METODOLOGÍAS" onclick="filterSkills('practices', event)" type="button">METODOLOGÍAS</button>
 </div>
 <!-- Modal Content Body -->
 <div class="p-3 sm:p-5 overflow-y-auto max-h-[calc(92vh-130px)] space-y-4">
@@ -391,7 +189,7 @@
 <section class="border-b border-[#1e293b] pb-4">
 <div class="flex items-center gap-2 mb-2 pb-1 border-b border-primary/30">
 <span class="font-pixel text-[9px] text-primary">#01</span>
-<h4 class="font-pixel text-xs text-primary uppercase tracking-wide">FRONTEND &amp; WEB DEV</h4>
+<h4 class="font-pixel text-xs text-primary uppercase tracking-wide" data-en="FRONTEND &amp; WEB DEV" data-es="FRONTEND &amp; DESARROLLO WEB">FRONTEND &amp; DESARROLLO WEB</h4>
 <span class="text-outline text-xs font-vt323 ml-auto">&lt;RENDER_ENGINE / UI&gt;</span>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
@@ -410,13 +208,13 @@
 <span class="h-2 w-full bg-secondary"></span>
 <span class="h-2 w-full bg-[#1e293b]"></span>
 </div>
-<p class="font-vt323 text-lg text-tertiary mt-1 leading-tight">Semántica web, layouts CSS modernos, DOM Scripting, Fetch API.</p>
+<p class="font-vt323 text-lg text-tertiary mt-1 leading-tight" data-en="Web semantics, modern CSS layouts, DOM Scripting, Fetch API." data-es="Semántica web, layouts CSS modernos, DOM Scripting, Fetch API.">Semántica web, layouts CSS modernos, DOM Scripting, Fetch API.</p>
 </div>
 <div class="bg-[#0f172a] border-2 border-[#1e293b] p-2.5 shadow-[2px_2px_0px_#000]">
 <div class="flex justify-between items-center mb-1.5">
 <div class="flex items-center gap-1.5">
-<span class="font-silkscreen text-[11px] text-on-surface font-bold">REACT &amp; COMPONENTES</span>
-<span class="font-pixel text-[7px] text-secondary bg-[#122131] border border-secondary/40 px-1 py-0.5">[EN APRENDIZAJE]</span>
+<span class="font-silkscreen text-[11px] text-on-surface font-bold" data-en="REACT &amp; COMPONENTS" data-es="REACT &amp; COMPONENTES">REACT &amp; COMPONENTES</span>
+<span class="font-pixel text-[7px] text-secondary bg-[#122131] border border-secondary/40 px-1 py-0.5" data-en="[LEARNING]" data-es="[EN APRENDIZAJE]">[EN APRENDIZAJE]</span>
 </div>
 <span class="font-pixel text-[8px] text-secondary">55%</span>
 </div>
@@ -430,13 +228,13 @@
 <span class="h-2 w-full bg-[#1e293b]"></span>
 <span class="h-2 w-full bg-[#1e293b]"></span>
 </div>
-<p class="font-vt323 text-lg text-tertiary mt-1 leading-tight">Interfaces modulares, SPAs, gestión de estados y componentes funcionales.</p>
+<p class="font-vt323 text-lg text-tertiary mt-1 leading-tight" data-en="Modular interfaces, SPAs, state management, and functional components." data-es="Interfaces modulares, SPAs, gestión de estados y componentes funcionales.">Interfaces modulares, SPAs, gestión de estados y componentes funcionales.</p>
 </div>
 <div class="bg-[#0f172a] border-2 border-[#1e293b] p-2.5 shadow-[2px_2px_0px_#000]">
 <div class="flex justify-between items-center mb-1.5">
 <div class="flex items-center gap-1.5">
 <span class="font-silkscreen text-[11px] text-on-surface font-bold">TAILWIND CSS</span>
-<span class="font-pixel text-[7px] text-secondary bg-[#122131] border border-secondary/40 px-1 py-0.5">[EN APRENDIZAJE]</span>
+<span class="font-pixel text-[7px] text-secondary bg-[#122131] border border-secondary/40 px-1 py-0.5" data-en="[LEARNING]" data-es="[EN APRENDIZAJE]">[EN APRENDIZAJE]</span>
 </div>
 <span class="font-pixel text-[8px] text-secondary">50%</span>
 </div>
@@ -450,11 +248,11 @@
 <span class="h-2 w-full bg-[#1e293b]"></span>
 <span class="h-2 w-full bg-[#1e293b]"></span>
 </div>
-<p class="font-vt323 text-lg text-tertiary mt-1 leading-tight">Diseño responsivo, themes tokens, layouts flexibles y utilidades.</p>
+<p class="font-vt323 text-lg text-tertiary mt-1 leading-tight" data-en="Responsive design, theme tokens, flexible layouts and utility classes." data-es="Diseño responsivo, themes tokens, layouts flexibles y utilidades.">Diseño responsivo, themes tokens, layouts flexibles y utilidades.</p>
 </div>
 <div class="bg-[#0f172a] border-2 border-[#1e293b] p-2.5 shadow-[2px_2px_0px_#000]">
 <div class="flex justify-between items-center mb-1.5">
-<span class="font-silkscreen text-[11px] text-on-surface font-bold">RESPONSIVE DESIGN</span>
+<span class="font-silkscreen text-[11px] text-on-surface font-bold" data-en="RESPONSIVE DESIGN" data-es="DISEÑO RESPONSIVO">DISEÑO RESPONSIVO</span>
 <span class="font-pixel text-[8px] text-secondary">90%</span>
 </div>
 <div class="flex items-center gap-1 bg-[#020617] p-1 border border-[#334155]">
@@ -467,14 +265,14 @@
 <span class="h-2 w-full bg-secondary"></span>
 <span class="h-2 w-full bg-[#1e293b]"></span>
 </div>
-<p class="font-vt323 text-lg text-tertiary mt-1 leading-tight">Mobile-first, adaptabilidad multiplataforma y accesibilidad.</p>
+<p class="font-vt323 text-lg text-tertiary mt-1 leading-tight" data-en="Mobile-first approach, cross-platform adaptability and accessibility." data-es="Mobile-first, adaptabilidad multiplataforma y accesibilidad.">Mobile-first, adaptabilidad multiplataforma y accesibilidad.</p>
 </div>
 </div>
 </section>
 <section class="border-b border-[#1e293b] pb-4">
 <div class="flex items-center gap-2 mb-2 pb-1 border-b border-secondary/30">
 <span class="font-pixel text-[9px] text-secondary">#02</span>
-<h4 class="font-pixel text-xs text-secondary uppercase tracking-wide">BACKEND &amp; ARQUITECTURA</h4>
+<h4 class="font-pixel text-xs text-secondary uppercase tracking-wide" data-en="BACKEND &amp; ARCHITECTURE" data-es="BACKEND &amp; ARQUITECTURA">BACKEND &amp; ARQUITECTURA</h4>
 <span class="text-outline text-xs font-vt323 ml-auto">&lt;SERVER_SIDE / CORE&gt;</span>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
@@ -483,38 +281,38 @@
 <span class="font-silkscreen text-[11px] text-on-surface font-bold">NODE.JS / EXPRESS</span>
 <span class="font-pixel text-[8px] text-secondary">85%</span>
 </div>
-<p class="font-vt323 text-lg text-tertiary mt-1 leading-tight">Servidores web asíncronos, middlewares, endpoints RESTful.</p>
+<p class="font-vt323 text-lg text-tertiary mt-1 leading-tight" data-en="Asynchronous web servers, middlewares, RESTful API endpoints." data-es="Servidores web asíncronos, middlewares, endpoints RESTful.">Servidores web asíncronos, middlewares, endpoints RESTful.</p>
 </div>
 <div class="bg-[#0f172a] border-2 border-[#1e293b] p-2.5 shadow-[2px_2px_0px_#000]">
 <div class="flex justify-between items-center mb-1.5">
 <span class="font-silkscreen text-[11px] text-on-surface font-bold">PYTHON</span>
 <span class="font-pixel text-[8px] text-secondary">80%</span>
 </div>
-<p class="font-vt323 text-lg text-tertiary mt-1 leading-tight">Lógica backend, POO, scripts de automatización y algoritmos.</p>
+<p class="font-vt323 text-lg text-tertiary mt-1 leading-tight" data-en="Backend logic, OOP, automation scripts and algorithmic problem solving." data-es="Lógica backend, POO, scripts de automatización y algoritmos.">Lógica backend, POO, scripts de automatización y algoritmos.</p>
 </div>
 </div>
 </section>
 <section>
 <div class="flex items-center gap-2 mb-2 pb-1 border-b border-[#38bdf8]/40">
 <span class="font-pixel text-[9px] text-[#38bdf8]">#03</span>
-<h4 class="font-pixel text-xs text-[#38bdf8] uppercase tracking-wide">HERRAMIENTAS &amp; METODOLOGÍAS</h4>
+<h4 class="font-pixel text-xs text-[#38bdf8] uppercase tracking-wide" data-en="TOOLS &amp; METHODOLOGIES" data-es="HERRAMIENTAS &amp; METODOLOGÍAS">HERRAMIENTAS &amp; METODOLOGÍAS</h4>
 </div>
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-<div class="bg-[#0f172a] border-2 border-[#1e293b] p-2 text-center">
+<div class="bg-[#0f172a] border-2 border-[#1e293b] p-2.5 text-center">
 <span class="font-pixel text-[9px] text-secondary block">SQL / DB</span>
-<span class="font-silkscreen text-[8px] text-outline">Postgres &amp; MySQL</span>
+<span class="font-silkscreen text-[8px] text-outline" data-en="Postgres &amp; MySQL" data-es="Postgres y MySQL">Postgres y MySQL</span>
 </div>
-<div class="bg-[#0f172a] border-2 border-[#1e293b] p-2 text-center">
+<div class="bg-[#0f172a] border-2 border-[#1e293b] p-2.5 text-center">
 <span class="font-pixel text-[9px] text-primary block">GIT / GITHUB</span>
-<span class="font-silkscreen text-[8px] text-outline">Version Control</span>
+<span class="font-silkscreen text-[8px] text-outline" data-en="Version Control" data-es="Control de Versiones">Control de Versiones</span>
 </div>
-<div class="bg-[#0f172a] border-2 border-[#1e293b] p-2 text-center">
+<div class="bg-[#0f172a] border-2 border-[#1e293b] p-2.5 text-center">
 <span class="font-pixel text-[9px] text-secondary block">SCRUM / AGILE</span>
-<span class="font-silkscreen text-[8px] text-outline">Sprints &amp; Standups</span>
+<span class="font-silkscreen text-[8px] text-outline" data-en="Sprints &amp; Standups" data-es="Sprints y Standups">Sprints y Standups</span>
 </div>
-<div class="bg-[#0f172a] border-2 border-[#1e293b] p-2 text-center">
+<div class="bg-[#0f172a] border-2 border-[#1e293b] p-2.5 text-center">
 <span class="font-pixel text-[9px] text-primary block">CLEAN CODE</span>
-<span class="font-silkscreen text-[8px] text-outline">SOLID &amp; Refactor</span>
+<span class="font-silkscreen text-[8px] text-outline" data-en="SOLID &amp; Refactor" data-es="SOLID y Refactorización">SOLID y Refactorización</span>
 </div>
 </div>
 </section>
@@ -528,7 +326,7 @@
 </div>
 <div>
 <span class="font-silkscreen text-xs text-on-surface font-bold uppercase">HTML5</span>
-<p class="font-vt323 text-lg text-tertiary mt-1 leading-snug">Estructuración semántica sólida, accesibilidad web (a11y) y optimización SEO.</p>
+<p class="font-vt323 text-lg text-tertiary mt-1 leading-snug" data-en="Solid semantic structure, web accessibility (a11y) and SEO optimization." data-es="Estructuración semántica sólida, accesibilidad web (a11y) y optimización SEO.">Estructuración semántica sólida, accesibilidad web (a11y) y optimización SEO.</p>
 </div>
 </div>
 <div class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] flex gap-3.5">
@@ -537,7 +335,7 @@
 </div>
 <div>
 <span class="font-silkscreen text-xs text-on-surface font-bold uppercase">CSS3</span>
-<p class="font-vt323 text-lg text-tertiary mt-1 leading-snug">Estilizado avanzado, diseño responsivo fluido (Flexbox/Grid) y animaciones.</p>
+<p class="font-vt323 text-lg text-tertiary mt-1 leading-snug" data-en="Advanced styling, fluid responsive layouts (Flexbox/Grid), and animations." data-es="Estilizado avanzado, diseño responsivo fluido (Flexbox/Grid) y animaciones.">Estilizado avanzado, diseño responsivo fluido (Flexbox/Grid) y animaciones.</p>
 </div>
 </div>
 <div class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] flex gap-3.5">
@@ -546,7 +344,7 @@
 </div>
 <div>
 <span class="font-silkscreen text-xs text-on-surface font-bold uppercase">JAVASCRIPT (ES6+)</span>
-<p class="font-vt323 text-lg text-tertiary mt-1 leading-snug">Programación asíncrona (Promises/Fetch), manipulación de DOM y Web APIs.</p>
+<p class="font-vt323 text-lg text-tertiary mt-1 leading-snug" data-en="Asynchronous programming (Promises/Fetch), DOM manipulation, and Web APIs." data-es="Programación asíncrona (Promises/Fetch), manipulación de DOM y Web APIs.">Programación asíncrona (Promises/Fetch), manipulación de DOM y Web APIs.</p>
 </div>
 </div>
 <div class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] flex gap-3.5">
@@ -555,10 +353,10 @@
 </div>
 <div>
 <div class="flex items-center gap-1.5">
-<span class="font-silkscreen text-xs text-on-surface font-bold uppercase">REACT &amp; COMPONENTS</span>
-<span class="font-pixel text-[7px] text-secondary bg-[#122131] border border-secondary/60 px-1 py-0.5">[EN APRENDIZAJE]</span>
+<span class="font-silkscreen text-xs text-on-surface font-bold uppercase" data-en="REACT &amp; COMPONENTS" data-es="REACT &amp; COMPONENTES">REACT &amp; COMPONENTES</span>
+<span class="font-pixel text-[7px] text-secondary bg-[#122131] border border-secondary/60 px-1 py-0.5" data-en="[LEARNING]" data-es="[EN APRENDIZAJE]">[EN APRENDIZAJE]</span>
 </div>
-<p class="font-vt323 text-lg text-tertiary mt-1 leading-snug">Componentes funcionales, hooks (useState/useEffect) y flujos declarativos.</p>
+<p class="font-vt323 text-lg text-tertiary mt-1 leading-snug" data-en="Functional components, state hooks (useState/useEffect), and declarative patterns." data-es="Componentes funcionales, hooks (useState/useEffect) y flujos declarativos.">Componentes funcionales, hooks (useState/useEffect) y flujos declarativos.</p>
 </div>
 </div>
 </div>
@@ -572,7 +370,7 @@
 </div>
 <div>
 <span class="font-silkscreen text-xs text-on-surface font-bold uppercase">PYTHON</span>
-<p class="font-vt323 text-lg text-tertiary mt-1 leading-snug">Programación orientada a objetos (POO), automatización y algoritmos eficientes.</p>
+<p class="font-vt323 text-lg text-tertiary mt-1 leading-snug" data-en="Object-oriented programming (OOP), automation scripts, and efficient algorithms." data-es="Programación orientada a objetos (POO), automatización y algoritmos eficientes.">Programación orientada a objetos (POO), automatización y algoritmos eficientes.</p>
 </div>
 </div>
 <div class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] flex gap-3.5">
@@ -581,7 +379,7 @@
 </div>
 <div>
 <span class="font-silkscreen text-xs text-on-surface font-bold uppercase">NODE.JS / EXPRESS</span>
-<p class="font-vt323 text-lg text-tertiary mt-1 leading-snug">Construcción de APIs RESTful, middlewares y servicios backend con JavaScript.</p>
+<p class="font-vt323 text-lg text-tertiary mt-1 leading-snug" data-en="RESTful API construction, custom middlewares, and JavaScript backend architecture." data-es="Construcción de APIs RESTful, middlewares y servicios backend con JavaScript.">Construcción de APIs RESTful, middlewares y servicios backend con JavaScript.</p>
 </div>
 </div>
 </div>
@@ -591,15 +389,15 @@
 <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
 <div class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5">
 <span class="font-silkscreen text-xs text-on-surface font-bold block mb-1">SQL / POSTGRESQL / MYSQL</span>
-<p class="font-vt323 text-lg text-tertiary">Diseño relacional, consultas complejas y normalización de datos.</p>
+<p class="font-vt323 text-lg text-tertiary" data-en="Relational schema design, complex query optimization, and normalization." data-es="Diseño relacional, consultas complejas y normalización de datos.">Diseño relacional, consultas complejas y normalización de datos.</p>
 </div>
 <div class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5">
 <span class="font-silkscreen text-xs text-on-surface font-bold block mb-1">GIT &amp; GITHUB</span>
-<p class="font-vt323 text-lg text-tertiary">Control de versiones, flujos de ramas y commits atómicos.</p>
+<p class="font-vt323 text-lg text-tertiary" data-en="Version control, branching strategies, code reviews, and atomic commits." data-es="Control de versiones, flujos de ramas y commits atómicos.">Control de versiones, flujos de ramas y commits atómicos.</p>
 </div>
 <div class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5">
 <span class="font-silkscreen text-xs text-on-surface font-bold block mb-1">POSTMAN &amp; CLI TERMINAL</span>
-<p class="font-vt323 text-lg text-tertiary">Testing exhaustivo de endpoints y herramientas de depuración.</p>
+<p class="font-vt323 text-lg text-tertiary" data-en="Comprehensive endpoint testing, API mocks, and terminal debugging tools." data-es="Testing exhaustivo de endpoints y herramientas de depuración.">Testing exhaustivo de endpoints y herramientas de depuración.</p>
 </div>
 </div>
 </div>
@@ -607,12 +405,12 @@
 <div class="hidden space-y-3" id="view-practices">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
 <div class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5">
-<span class="font-silkscreen text-xs text-secondary font-bold block mb-1">SCRUM &amp; METODOLOGÍAS ÁGILES</span>
-<p class="font-vt323 text-lg text-tertiary">Desarrollo iterativo, sprints, backlog grooming y mejora continua.</p>
+<span class="font-silkscreen text-xs text-secondary font-bold block mb-1" data-en="SCRUM &amp; AGILE METHODOLOGIES" data-es="SCRUM &amp; METODOLOGÍAS ÁGILES">SCRUM &amp; METODOLOGÍAS ÁGILES</span>
+<p class="font-vt323 text-lg text-tertiary" data-en="Iterative development, sprint cycles, backlog grooming, and continuous improvement." data-es="Desarrollo iterativo, sprints, backlog grooming y mejora continua.">Desarrollo iterativo, sprints, backlog grooming y mejora continua.</p>
 </div>
 <div class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5">
-<span class="font-silkscreen text-xs text-primary font-bold block mb-1">CLEAN CODE &amp; PRINCIPIOS SOLID</span>
-<p class="font-vt323 text-lg text-tertiary">Código autodocumentado, modularidad, bajo acoplamiento y alta cohesión.</p>
+<span class="font-silkscreen text-xs text-primary font-bold block mb-1" data-en="CLEAN CODE &amp; SOLID PRINCIPLES" data-es="CLEAN CODE &amp; PRINCIPIOS SOLID">CLEAN CODE &amp; PRINCIPIOS SOLID</span>
+<p class="font-vt323 text-lg text-tertiary" data-en="Self-documenting code, modularity, loose coupling, and high cohesion." data-es="Código autodocumentado, modularidad, bajo acoplamiento y alta cohesión.">Código autodocumentado, modularidad, bajo acoplamiento y alta cohesión.</p>
 </div>
 </div>
 </div>
@@ -621,253 +419,33 @@
 <div class="bg-[#0f172a] border-t-2 border-[#1e293b] px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-2">
 <div class="flex items-center gap-2">
 <span class="w-2 h-2 bg-secondary pixel-blink"></span>
-<span class="font-vt323 text-lg text-secondary">SYS_STATUS: VERIFIED DEVELOPER PROFILE [LVL 4]</span>
+<span class="font-vt323 text-lg text-secondary" data-en="SYS_STATUS: VERIFIED DEVELOPER PROFILE [LVL 4]" data-es="ESTADO_SISTEMA: PERFIL DESARROLLADOR VERIFICADO [LVL 4]">ESTADO_SISTEMA: PERFIL DESARROLLADOR VERIFICADO [LVL 4]</span>
 </div>
 <div class="flex items-center gap-3">
-<button class="font-pixel text-[9px] uppercase px-3 py-1 bg-secondary text-on-secondary pixel-btn-lime border border-[#2c4900] cursor-pointer" onclick="toggleSkillsModal(false); toggleContactModal(true);" type="button">
-            [ SOLICITAR ENTREVISTA ]
-          </button>
-<button class="font-silkscreen text-[10px] uppercase text-outline hover:text-white cursor-pointer" onclick="toggleSkillsModal(false)" type="button">
-            [ ESC / CERRAR ]
-          </button>
+<button class="font-pixel text-[9px] uppercase px-3 py-1 bg-secondary text-on-secondary pixel-btn-lime border border-[#2c4900] cursor-pointer" data-en="[ REQUEST INTERVIEW ]" data-es="[ SOLICITAR ENTREVISTA ]" onclick="toggleSkillsModal(false); const va=document.getElementById('view-all');if(va)va.classList.remove('hidden');['view-frontend','view-backend','view-tools','view-practices'].forEach(id=&gt;{const el=document.getElementById(id);if(el)el.classList.add('hidden');});document.querySelectorAll('.skill-tab-btn').forEach(b=&gt;{b.classList.remove('bg-secondary','text-on-secondary');b.classList.add('bg-[#1e293b]','text-on-surface');}); toggleContactModal(true);" type="button">[ SOLICITAR ENTREVISTA ]</button>
+
 </div>
-</div>
-</div>
+</div></div>
 </div>
 <!-- ================= MODAL: SOBRE MÍ (DEV_LORE // LOG_01) ================= -->
-<div aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/85 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-150" id="about-modal" role="dialog">
+<div aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/85 backdrop-blur-sm transition-opacity duration-150 opacity-0 pointer-events-none" id="about-modal" role="dialog">
 <div class="fixed inset-0 crt-overlay opacity-30 pointer-events-none"></div>
-<div class="relative w-full max-w-3xl max-h-[92vh] flex flex-col bg-[#071322] border-4 border-[#334155] pixel-box-primary shadow-[8px_8px_0px_#020617] overflow-hidden z-10" id="about-modal-dialog">
-<div class="bg-[#0f172a] border-b-4 border-[#334155] px-3 sm:px-4 py-2 flex items-center justify-between select-none">
-<div class="flex items-center gap-2">
-<span class="inline-block w-2.5 h-2.5 bg-primary pixel-blink"></span>
-<span class="font-pixel text-[9px] sm:text-[10px] text-primary uppercase tracking-wider">[ DEV_LORE // LOG_01: SOBRE MÍ - JOSE GUILLERMO RODRIGUEZ SAMCAM ]</span>
-</div>
-<button aria-label="Cerrar modal" class="px-2.5 py-0.5 bg-[#ef4444] text-white hover:bg-[#dc2626] font-pixel text-[10px] border-2 border-[#7f1d1d] shadow-[2px_2px_0px_#000] cursor-pointer" onclick="toggleAboutModal(false)" type="button">
-          [ X ]
-        </button>
-</div>
-<div class="p-3 sm:p-5 overflow-y-auto max-h-[calc(92vh-120px)] space-y-4 font-vt323">
-<!-- Mini Hero Profile -->
-<div class="bg-[#020617] border-2 border-[#1e293b] p-3 sm:p-4 flex flex-col sm:flex-row items-center gap-4 shadow-[2px_2px_0px_#000]">
-<div class="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 bg-[#0d1c2d] border-2 border-primary relative overflow-hidden">
-<img alt="Jose Guillermo Avatar" class="w-full h-full object-cover filter contrast-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3CVbCObjW8BMoH02ET3yydVyu8e8YPQ_XxW4_DW2T04f6gzc9INcB-iOduvD5AfrD_ZTkouz07wXIWQFiXzdxIbJUfDv3w5xpIYfPCk4N9tl4Rr_sB9KZIPBIL3HOuqfDGR-Vn1bN8zZOyaeo0M7kWC7HKfNxgwfzexuLPvfr8-GNyXHcnLOALT4AoiVxb7QnsKAxxGa4_xQvKl4TE2QNkFdxF3md1n7SZxv4ei3A_OzR64rn1U1x_Y1Vw2NjMl9Jy_k">
-<div class="absolute inset-0 crt-overlay opacity-30 pointer-events-none"></div>
-<div class="absolute bottom-0 inset-x-0 bg-primary/80 text-[7px] font-pixel text-black text-center py-0.5">DEV_ID</div>
-</div>
-<div class="flex-grow text-center sm:text-left space-y-1">
-<div class="inline-block px-2 py-0.5 bg-[#122131] border border-secondary text-secondary font-pixel text-[8px] uppercase">
-              CHARACTER BIO // LEVEL 4 ARCHITECT
-            </div>
-<h3 class="font-pixel text-sm sm:text-base text-on-surface uppercase tracking-wide">
-              JOSE GUILLERMO RODRIGUEZ SAMCAM
-            </h3>
-<p class="text-tertiary text-lg sm:text-xl leading-snug">
-              Técnico en Desarrollo de Software. Constructor de soluciones web sistemáticas con enfoque en arquitectura limpia, lógica rigurosa y diseño visual inmersivo.
-            </p>
-</div>
-</div>
-<!-- Historia & Pasión -->
-<section class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] space-y-2">
-<div class="flex items-center gap-2 border-b border-secondary/40 pb-1.5">
-<span class="font-pixel text-[9px] text-secondary">[SEC_01]</span>
-<h4 class="font-pixel text-xs text-secondary uppercase tracking-wide">¿QUIÉN SOY? // HISTORIA &amp; PASIÓN</h4>
-</div>
-<p class="text-lg sm:text-xl text-on-surface leading-relaxed">
-            Soy un técnico en desarrollo de software con profunda fascinación por el funcionamiento interno de las máquinas y el software. Desde mis primeros acercamientos a la programación entendí que el código es la herramienta más poderosa para transformar ideas abstractas en herramientas funcionales que resuelven problemas del mundo real.
-          </p>
-<p class="text-lg sm:text-xl text-tertiary leading-relaxed">
-            Mi meta profesional es continuar evolucionando en la ingeniería de software moderna, aportando soluciones escalables, rendimiento optimizado y un estándar de ingeniería meticuloso en cada línea escrita.
-          </p>
-</section>
-<!-- Gustos & Intereses -->
-<section class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] space-y-2">
-<div class="flex items-center gap-2 border-b border-primary/40 pb-1.5">
-<span class="font-pixel text-[9px] text-primary">[SEC_02]</span>
-<h4 class="font-pixel text-xs text-primary uppercase tracking-wide">GUSTOS &amp; INTERESES PERSONALES</h4>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-<div class="bg-[#020617] border border-[#334155] p-2.5 flex items-start gap-2.5">
-<span class="text-secondary text-xl">🕹️</span>
-<div>
-<h5 class="font-pixel text-[9px] text-secondary uppercase">DESARROLLO INTERACTIVO &amp; RETRO</h5>
-<p class="text-base sm:text-lg text-tertiary leading-snug">Estética arcade, síntesis de audio retro y microinteracciones web enriquecidas.</p>
-</div>
-</div>
-<div class="bg-[#020617] border border-[#334155] p-2.5 flex items-start gap-2.5">
-<span class="text-primary text-xl">⚡</span>
-<div>
-<h5 class="font-pixel text-[9px] text-primary uppercase">OPTIMIZACIÓN &amp; ALGORITMOS</h5>
-<p class="text-base sm:text-lg text-tertiary leading-snug">Resolver acertijos de lógica, refactorizar arquitecturas para menor latencia y código eficiente.</p>
-</div>
-</div>
-<div class="bg-[#020617] border border-[#334155] p-2.5 flex items-start gap-2.5">
-<span class="text-secondary text-xl">📚</span>
-<div>
-<h5 class="font-pixel text-[9px] text-secondary uppercase">APRENDIZAJE CONTINUO</h5>
-<p class="text-base sm:text-lg text-tertiary leading-snug">Explorar nuevas tecnologías, frameworks emergentes y metodologías backend modernas.</p>
-</div>
-</div>
-<div class="bg-[#020617] border border-[#334155] p-2.5 flex items-start gap-2.5">
-<span class="text-primary text-xl">🎮</span>
-<div>
-<h5 class="font-pixel text-[9px] text-primary uppercase">VIDEOJUEGOS &amp; CIENCIA FICCIÓN</h5>
-<p class="text-base sm:text-lg text-tertiary leading-snug">Amante de los clásicos de arcade, juegos de estrategia lógica y universos cyberpunk.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Retos Enfrentados & Resueltos -->
-<section class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] space-y-2">
-<div class="flex items-center gap-2 border-b border-[#38bdf8]/40 pb-1.5">
-<span class="font-pixel text-[9px] text-[#38bdf8]">[SEC_03]</span>
-<h4 class="font-pixel text-xs text-[#38bdf8] uppercase tracking-wide">RETOS ENFRENTADOS &amp; RESUELTOS</h4>
-</div>
-<div class="space-y-2 pt-1 font-vt323">
-<div class="bg-[#020617] border-l-4 border-secondary p-2.5 border-t border-r border-b border-[#1e293b]">
-<div class="flex justify-between items-center mb-1">
-<span class="font-silkscreen text-[10px] text-secondary tracking-wide uppercase">De Conceptos Teóricos a Proyectos Full-Stack Reales</span>
-<span class="font-pixel text-[7px] text-secondary">[SUPERADO]</span>
-</div>
-<p class="text-base sm:text-lg text-tertiary leading-snug">
-                Transicionar hacia la construcción de aplicaciones completas con comunicación asíncrona, bases de datos conectadas y frontend reactivo.
-              </p>
-</div>
-<div class="bg-[#020617] border-l-4 border-primary p-2.5 border-t border-r border-b border-[#1e293b]">
-<div class="flex justify-between items-center mb-1">
-<span class="font-silkscreen text-[10px] text-primary tracking-wide uppercase">Curva de Aprendizaje en React &amp; Ecosistema Moderno</span>
-<span class="font-pixel text-[7px] text-primary">[EN EVOLUCIÓN]</span>
-</div>
-<p class="text-base sm:text-lg text-tertiary leading-snug">
-                Asimilar el flujo de datos unidireccional, hooks y arquitectura modular, creando componentes reutilizables sin sacrificar rendimiento.
-              </p>
-</div>
-<div class="bg-[#020617] border-l-4 border-[#38bdf8] p-2.5 border-t border-r border-b border-[#1e293b]">
-<div class="flex justify-between items-center mb-1">
-<span class="font-silkscreen text-[10px] text-[#38bdf8] tracking-wide uppercase">Persistencia y Debugging ante Errores Críticos</span>
-<span class="font-pixel text-[7px] text-[#38bdf8]">[HÁBITO DIARIO]</span>
-</div>
-<p class="text-base sm:text-lg text-tertiary leading-snug">
-                Desarrollar una mentalidad analítica rigurosa: rastrear la causa raíz de fallos silenciosos mediante inspección metódica y logs.
-              </p>
-</div>
-</div>
-</section>
-<!-- Filosofía de Trabajo -->
-<section class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] space-y-2">
-<div class="flex items-center gap-2 border-b border-secondary/40 pb-1.5">
-<span class="font-pixel text-[9px] text-secondary">[SEC_04]</span>
-<h4 class="font-pixel text-xs text-secondary uppercase tracking-wide">FILOSOFÍA DE TRABAJO &amp; METAS</h4>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1 text-center font-silkscreen">
-<div class="bg-[#020617] border border-[#334155] p-2">
-<span class="font-pixel text-[8px] text-secondary block mb-1">CÓDIGO LIMPIO</span>
-<p class="font-vt323 text-lg text-tertiary">Escribir software legible para humanos y óptimo para máquinas.</p>
-</div>
-<div class="bg-[#020617] border border-[#334155] p-2">
-<span class="font-pixel text-[8px] text-primary block mb-1">ATENCIÓN AL DETALLE</span>
-<p class="font-vt323 text-lg text-tertiary">Cuidar la experiencia del usuario y la robustez técnica.</p>
-</div>
-<div class="bg-[#020617] border border-[#334155] p-2">
-<span class="font-pixel text-[8px] text-[#38bdf8] block mb-1">TRABAJO EN EQUIPO</span>
-<p class="font-vt323 text-lg text-tertiary">Comunicación clara, empatía y adaptabilidad ágil.</p>
-</div>
-</div>
-</section>
-</div>
-<!-- Modal Footer -->
-<div class="bg-[#0f172a] border-t-2 border-[#1e293b] px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-2">
-<div class="flex items-center gap-2">
-<span class="w-2 h-2 bg-secondary pixel-blink"></span>
-<span class="font-vt323 text-lg text-secondary">CONTACT DIRECTO: evomarketgt@icloud.com</span>
-</div>
-<div class="flex items-center gap-2">
-<button class="font-pixel text-[9px] uppercase px-3 py-1 bg-secondary text-on-secondary pixel-btn-lime border border-[#2c4900] cursor-pointer" onclick="toggleAboutModal(false); toggleContactModal(true);" type="button">
-            [ CONTACTARME &gt; ]
-          </button>
-<button class="font-silkscreen text-[10px] uppercase text-outline hover:text-white cursor-pointer" onclick="toggleAboutModal(false)" type="button">
-            [ ESC / CERRAR ]
-          </button>
-</div>
-</div>
-</div>
-</div>
+<div class="relative w-full max-w-3xl max-h-[92vh] flex flex-col bg-[#071322] border-4 border-[#334155] pixel-box-primary shadow-[8px_8px_0px_#020617] overflow-hidden z-10 animate-modal-pop" id="about-modal-dialog"><div class="bg-[#0f172a] border-b-4 border-[#334155] px-3 sm:px-4 py-2 flex items-center justify-between select-none"><div class="flex items-center gap-2"><span class="inline-block w-2.5 h-2.5 bg-primary pixel-blink"></span><span class="font-pixel text-[9px] sm:text-[10px] text-primary uppercase tracking-wider" data-en="[ DEV_LORE // LOG_01: ABOUT ME - JOSE GUILLERMO RODRIGUEZ SAMCAM ]" data-es="[ DEV_LORE // LOG_01: SOBRE MÍ - JOSE GUILLERMO RODRIGUEZ SAMCAM ]">[ DEV_LORE // LOG_01: SOBRE MÍ - JOSE GUILLERMO RODRIGUEZ SAMCAM ]</span></div><button aria-label="Cerrar modal" class="px-2.5 py-0.5 bg-[#ef4444] text-white hover:bg-[#dc2626] font-pixel text-[10px] border-2 border-[#7f1d1d] shadow-[2px_2px_0px_#000] cursor-pointer" onclick="toggleAboutModal(false)" type="button">[ X ]</button></div><div class="p-3 sm:p-5 overflow-y-auto max-h-[calc(92vh-120px)] space-y-4 font-vt323"><!-- Mini Hero Profile --><div class="bg-[#020617] border-2 border-[#1e293b] p-3 sm:p-4 flex flex-col sm:flex-row items-center gap-4 shadow-[2px_2px_0px_#000]"><div class="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 bg-[#0d1c2d] border-2 border-primary relative overflow-hidden"><img alt="Jose Guillermo Avatar" class="w-full h-full object-cover filter contrast-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-lnaUmacOJ1bqhszjkxdnwjY94-F86sQJIULLSKV7L0omsCmyhqaS59qmapUwm-QVBEmOYsIrx9eNQbb40tQH1ZMRWwKGClM8cxbF4oG1Pfsb4ToYic3I9lB-E7leqwadtrHKwl1rInoFv2VUzOv5j8dyRpMPAERc1ae1dUeHZmZ9BOmVmwwSQNOb7HlvRrLfLXcxxkZLZNaRqKY6AyXchDf9Xs6e8ho8ZIfR1s7HtkG6_xMXu-Z2bGtjPs9mPX-4Raw"><div class="absolute inset-0 crt-overlay opacity-30 pointer-events-none"></div><div class="absolute bottom-0 inset-x-0 bg-primary/80 text-[7px] font-pixel text-black text-center py-0.5">DEV_ID</div></div><div class="flex-grow text-center sm:text-left space-y-1"><div class="inline-block px-2 py-0.5 bg-[#122131] border border-secondary text-secondary font-pixel text-[8px] uppercase" data-en="CHARACTER BIO // LEVEL 4 ARCHITECT" data-es="BIOGRAFÍA DE PERSONAJE // ARQUITECTO NIVEL 4">BIOGRAFÍA DE PERSONAJE // ARQUITECTO NIVEL 4</div><h3 class="font-pixel text-sm sm:text-base text-on-surface uppercase tracking-wide">JOSE GUILLERMO RODRIGUEZ SAMCAM</h3><p class="text-tertiary text-lg sm:text-xl leading-snug" data-en="Software Development Technician. Builder of systematic web solutions focused on clean architecture, rigorous logic, and immersive visual design." data-es="Técnico en Desarrollo de Software. Constructor de soluciones web sistemáticas con enfoque en arquitectura limpia, lógica rigurosa y diseño visual inmersivo." style="text-align: justify; text-justify: inter-character; text-align-last: left; hyphens: auto; word-break: break-word; line-height: 1.35;">Técnico en Desarrollo de Software. Constructor de soluciones web sistemáticas con enfoque en arquitectura limpia, lógica rigurosa y diseño visual inmersivo.</p></div></div><!-- Historia & Pasión --><div class="bg-[#020617] border-2 border-secondary p-3 sm:p-3.5 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-[3px_3px_0px_#020617]"><div class="flex items-center gap-3"><div class="w-10 h-10 bg-secondary/10 border border-secondary flex items-center justify-center text-xl flex-shrink-0">📄</div><div><h4 class="font-pixel text-[10px] sm:text-xs text-secondary uppercase tracking-wide" data-en="OFFICIAL CURRICULUM VITAE (CV)" data-es="CURRÍCULUM VITAE OFICIAL (CV)">CURRÍCULUM VITAE OFICIAL (CV)</h4><p class="font-vt323 text-lg text-tertiary leading-snug" data-en="Full technical profile, detailed work experience, tools, and direct references available for inspection." data-es="Perfil técnico completo, experiencia laboral detallada, herramientas y referencias disponibles para revisión.">Perfil técnico completo, experiencia laboral detallada, herramientas y referencias disponibles para revisión.</p></div></div><a aria-label="Ver CV" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 bg-secondary text-on-secondary font-pixel text-[9.5px] uppercase pixel-btn-lime border-2 border-[#2c4900] cursor-pointer flex-shrink-0" href="https://docs.google.com/document/d/18hGtszASOl_N35ActQ_DsIUy9Mc3NJcy0XDMTqhfpLk/edit?usp=sharing" onclick="RetroAudio.playPowerUpSound()" rel="noopener noreferrer" target="_blank"><span class="" data-en="[ VIEW CV ]" data-es="[ VER CV ]">[ VER CV ]</span></a></div><section class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] space-y-2"><div class="flex items-center gap-2 border-b border-secondary/40 pb-1.5"><span class="font-pixel text-[9px] text-secondary">[SEC_01]</span><h4 class="font-pixel text-xs text-secondary uppercase tracking-wide" data-en="WHO AM I? // STORY &amp; PASSION" data-es="¿QUIÉN SOY? // HISTORIA &amp; PASIÓN">¿QUIÉN SOY? // HISTORIA &amp; PASIÓN</h4></div><p class="text-lg sm:text-xl text-on-surface leading-relaxed" data-en="I am a software development technician with a deep fascination for the inner workings of machines and software. Since my earliest encounters with programming, I understood that code is the most powerful tool to turn abstract ideas into functional tools that solve real-world problems." data-es="Soy un técnico en desarrollo de software con profunda fascinación por el funcionamiento interno de las máquinas y el software. Desde mis primeros acercamientos a la programación entendí que el código es la herramienta más poderosa para transformar ideas abstractas en herramientas funcionales que resuelven problemas del mundo real." style="text-align: justify; text-justify: inter-character; text-align-last: left; hyphens: auto; word-break: break-word; line-height: 1.45; margin-bottom: 0.5rem;">Soy un técnico en desarrollo de software con profunda fascinación por el funcionamiento interno de las máquinas y el software. Desde mis primeros acercamientos a la programación entendí que el código es la herramienta más poderosa para transformar ideas abstractas en herramientas funcionales que resuelven problemas del mundo real.</p><p class="text-lg sm:text-xl text-tertiary leading-relaxed" data-en="My professional goal is to continue evolving in modern software engineering, delivering scalable solutions, optimized performance, and meticulous engineering standards in every line of code written." data-es="Mi meta profesional es continuar evolucionando en la ingeniería de software moderna, aportando soluciones escalables, rendimiento optimizado y un estándar de ingeniería meticuloso en cada línea escrita." style="text-align: justify; text-justify: inter-character; text-align-last: left; hyphens: auto; word-break: break-word; line-height: 1.45;">Mi meta profesional es continuar evolucionando en la ingeniería de software moderna, aportando soluciones escalables, rendimiento optimizado y un estándar de ingeniería meticuloso en cada línea escrita.</p></section><!-- Gustos & Intereses --><section class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] space-y-2"><div class="flex items-center gap-2 border-b border-primary/40 pb-1.5"><span class="font-pixel text-[9px] text-primary">[SEC_02]</span><h4 class="font-pixel text-xs text-primary uppercase tracking-wide" data-en="PERSONAL INTERESTS &amp; HOBBIES" data-es="GUSTOS &amp; INTERESES PERSONALES">GUSTOS &amp; INTERESES PERSONALES</h4></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1"><div class="bg-[#020617] border border-[#334155] p-2.5 flex items-start gap-2.5"><span class="text-secondary text-xl">🕹️</span><div><h5 class="font-pixel text-[9px] text-secondary uppercase" data-en="INTERACTIVE &amp; RETRO DEV" data-es="DESARROLLO INTERACTIVO &amp; RETRO">DESARROLLO INTERACTIVO &amp; RETRO</h5><p class="text-base sm:text-lg text-tertiary leading-snug" data-en="Arcade aesthetics, retro audio synthesis, and rich web microinteractions." data-es="Estética arcade, síntesis de audio retro y microinteracciones web enriquecidas.">Estética arcade, síntesis de audio retro y microinteracciones web enriquecidas.</p></div></div><div class="bg-[#020617] border border-[#334155] p-2.5 flex items-start gap-2.5"><span class="text-primary text-xl">⚡</span><div><h5 class="font-pixel text-[9px] text-primary uppercase" data-en="OPTIMIZATION &amp; ALGORITHMS" data-es="OPTIMIZACIÓN &amp; ALGORITMOS">OPTIMIZACIÓN &amp; ALGORITMOS</h5><p class="text-base sm:text-lg text-tertiary leading-snug" data-en="Solving logic puzzles, refactoring architectures for lower latency and efficient code." data-es="Resolver acertijos de lógica, refactorizar arquitecturas para menor latencia y código eficiente.">Resolver acertijos de lógica, refactorizar arquitecturas para menor latencia y código eficiente.</p></div></div><div class="bg-[#020617] border border-[#334155] p-2.5 flex items-start gap-2.5"><span class="text-secondary text-xl">📚</span><div><h5 class="font-pixel text-[9px] text-secondary uppercase" data-en="CONTINUOUS LEARNING" data-es="APRENDIZAJE CONTINUO">APRENDIZAJE CONTINUO</h5><p class="text-base sm:text-lg text-tertiary leading-snug" data-en="Exploring emerging frameworks, modern backend patterns, and new technologies." data-es="Explorar nuevas tecnologías, frameworks emergentes y metodologías backend modernas.">Explorar nuevas tecnologías, frameworks emergentes y metodologías backend modernas.</p></div></div><div class="bg-[#020617] border border-[#334155] p-2.5 flex items-start gap-2.5"><span class="text-primary text-xl">🎮</span><div><h5 class="font-pixel text-[9px] text-primary uppercase" data-en="VIDEOGAMES &amp; SCI-FI" data-es="VIDEOJUEGOS &amp; CIENCIA FICCIÓN">VIDEOJUEGOS &amp; CIENCIA FICCIÓN</h5><p class="text-base sm:text-lg text-tertiary leading-snug" data-en="Enthusiast of classic arcade games, logic strategy games, and cyberpunk universes." data-es="Amante de los clásicos de arcade, juegos de estrategia lógica y universos cyberpunk.">Amante de los clásicos de arcade, juegos de estrategia lógica y universos cyberpunk.</p></div></div></div></section><!-- Retos Enfrentados & Resueltos --><section class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] space-y-2"><div class="flex items-center gap-2 border-b border-[#38bdf8]/40 pb-1.5"><span class="font-pixel text-[9px] text-[#38bdf8]">[SEC_03]</span><h4 class="font-pixel text-xs text-[#38bdf8] uppercase tracking-wide" data-en="CHALLENGES FACED &amp; OVERCOME" data-es="RETOS ENFRENTADOS &amp; RESUELTOS">RETOS ENFRENTADOS &amp; RESUELTOS</h4></div><div class="space-y-2 pt-1 font-vt323"><div class="bg-[#020617] border-l-4 border-secondary p-2.5 border-t border-r border-b border-[#1e293b]"><div class="flex justify-between items-center mb-1"><span class="font-silkscreen text-[10px] text-secondary tracking-wide uppercase" data-en="From Theoretical Concepts to Real Full-Stack Projects" data-es="De Conceptos Teóricos a Proyectos Full-Stack Reales">De Conceptos Teóricos a Proyectos Full-Stack Reales</span><span class="font-pixel text-[7px] text-secondary" data-en="[OVERCOME]" data-es="[SUPERADO]">[SUPERADO]</span></div><p class="text-base sm:text-lg text-tertiary leading-snug" data-en="Transitioning toward building complete applications with asynchronous communication, connected databases, and reactive frontend." data-es="Transicionar hacia la construcción de aplicaciones completas con comunicación asíncrona, bases de datos conectadas y frontend reactivo.">Transicionar hacia la construcción de aplicaciones completas con comunicación asíncrona, bases de datos conectadas y frontend reactivo.</p></div><div class="bg-[#020617] border-l-4 border-primary p-2.5 border-t border-r border-b border-[#1e293b]"><div class="flex justify-between items-center mb-1"><span class="font-silkscreen text-[10px] text-primary tracking-wide uppercase" data-en="Learning Curve in React &amp; Modern Ecosystem" data-es="Curva de Aprendizaje en React &amp; Ecosistema Moderno">Curva de Aprendizaje en React &amp; Ecosistema Moderno</span><span class="font-pixel text-[7px] text-primary" data-en="[IN PROGRESS]" data-es="[EN EVOLUCIÓN]">[EN EVOLUCIÓN]</span></div><p class="text-base sm:text-lg text-tertiary leading-snug" data-en="Assimilating unidirectional data flow, hooks, and modular architecture, creating reusable components without sacrificing performance." data-es="Asimilar el flujo de datos unidireccional, hooks y arquitectura modular, creando componentes reutilizables sin sacrificar rendimiento.">Asimilar el flujo de datos unidireccional, hooks y arquitectura modular, creando componentes reutilizables sin sacrificar rendimiento.</p></div><div class="bg-[#020617] border-l-4 border-[#38bdf8] p-2.5 border-t border-r border-b border-[#1e293b]"><div class="flex justify-between items-center mb-1"><span class="font-silkscreen text-[10px] text-[#38bdf8] tracking-wide uppercase" data-en="Persistence &amp; Debugging Critical Errors" data-es="Persistencia y Debugging ante Errores Críticos">Persistencia y Debugging ante Errores Críticos</span><span class="font-pixel text-[7px] text-[#38bdf8]" data-en="[DAILY HABIT]" data-es="[HÁBITO DIARIO]">[HÁBITO DIARIO]</span></div><p class="text-base sm:text-lg text-tertiary leading-snug" data-en="Developing a rigorous analytical mindset: tracing the root cause of silent failures through methodical inspection and logs." data-es="Desarrollar una mentalidad analítica rigurosa: rastrear la causa raíz de fallos silenciosos mediante inspección metódica y logs.">Desarrollar una mentalidad analítica rigurosa: rastrear la causa raíz de fallos silenciosos mediante inspección metódica y logs.</p></div></div></section><!-- Filosofía de Trabajo --><section class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] space-y-2"><div class="flex items-center gap-2 border-b border-secondary/40 pb-1.5"><span class="font-pixel text-[9px] text-secondary">[SEC_04]</span><h4 class="font-pixel text-xs text-secondary uppercase tracking-wide" data-en="WORK PHILOSOPHY &amp; GOALS" data-es="FILOSOFÍA DE TRABAJO &amp; METAS">FILOSOFÍA DE TRABAJO &amp; METAS</h4></div><div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1 text-center font-silkscreen"><div class="bg-[#020617] border border-[#334155] p-2"><span class="font-pixel text-[8px] text-secondary block mb-1" data-en="CLEAN CODE" data-es="CÓDIGO LIMPIO">CÓDIGO LIMPIO</span><p class="font-vt323 text-lg text-tertiary" data-en="Writing software that is readable for humans and optimized for machines." data-es="Escribir software legible para humanos y óptimo para máquinas.">Escribir software legible para humanos y óptimo para máquinas.</p></div><div class="bg-[#020617] border border-[#334155] p-2"><span class="font-pixel text-[8px] text-primary block mb-1" data-en="ATTENTION TO DETAIL" data-es="ATENCIÓN AL DETALLE">ATENCIÓN AL DETALLE</span><p class="font-vt323 text-lg text-tertiary" data-en="Caring for user experience and technical robustness." data-es="Cuidar la experiencia del usuario y la robustez técnica.">Cuidar la experiencia del usuario y la robustez técnica.</p></div><div class="bg-[#020617] border border-[#334155] p-2"><span class="font-pixel text-[8px] text-[#38bdf8] block mb-1" data-en="TEAMWORK" data-es="TRABAJO EN EQUIPO">TRABAJO EN EQUIPO</span><p class="font-vt323 text-lg text-tertiary" data-en="Clear communication, empathy, and agile adaptability." data-es="Comunicación clara, empatía y adaptabilidad ágil.">Comunicación clara, empatía y adaptabilidad ágil.</p></div></div></section></div><!-- Modal Footer --><div class="bg-[#0f172a] border-t-2 border-[#1e293b] px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-2"><div class="flex items-center gap-2"><span class="w-2 h-2 bg-secondary pixel-blink"></span><span class="font-vt323 text-lg text-secondary">CONTACT DIRECTO: evomarketgt@icloud.com</span></div><div class="flex items-center gap-2"><button class="font-silkscreen text-[10px] uppercase text-outline hover:text-white cursor-pointer" data-en="[ ESC / CLOSE ]" data-es="[ ESC / CERRAR ]" onclick="toggleAboutModal(false)" type="button">[ ESC / CERRAR ]</button></div></div></div>
+</div><div aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/85 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-150" id="cv-modal" role="dialog"><div class="fixed inset-0 crt-overlay opacity-30 pointer-events-none"></div><div class="relative w-full max-w-4xl max-h-[92vh] flex flex-col bg-[#071322] border-4 border-[#334155] pixel-box-primary shadow-[8px_8px_0px_#020617] overflow-hidden z-10 animate-modal-pop" id="cv-modal-dialog"><div class="bg-[#0f172a] border-b-4 border-[#334155] px-3 sm:px-4 py-2 flex items-center justify-between select-none"><div class="flex items-center gap-2 overflow-hidden"><span class="inline-block w-2.5 h-2.5 bg-secondary pixel-blink flex-shrink-0"></span><span class="font-pixel text-[9px] sm:text-[10px] text-secondary uppercase tracking-wider truncate" data-en="[ SYSTEM // CURRICULUM VITAE - JOSE GUILLERMO RODRIGUEZ SAMCAM ]" data-es="[ SYSTEM // CURRICULUM VITAE - JOSE GUILLERMO RODRIGUEZ SAMCAM ]">[ SYSTEM // CURRICULUM VITAE - JOSE GUILLERMO RODRIGUEZ SAMCAM ]</span></div><div class="flex items-center gap-2 flex-shrink-0"><button class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-secondary text-on-secondary font-pixel text-[8.5px] uppercase pixel-btn-lime border border-[#2c4900] cursor-pointer" onclick="window.print()" title="Imprimir / Guardar como PDF" type="button"><span class="">🖨️</span><span class="hidden sm:inline" data-en="[ PRINT / PDF ]" data-es="[ IMPRIMIR / PDF ]">[ IMPRIMIR / PDF ]</span></button><button aria-label="Cerrar modal CV" class="px-2.5 py-0.5 bg-[#ef4444] text-white hover:bg-[#dc2626] font-pixel text-[10px] border-2 border-[#7f1d1d] shadow-[2px_2px_0px_#000] cursor-pointer" onclick="toggleCvModal(false)" type="button">[ X ]</button></div></div><div class="p-3 sm:p-5 overflow-y-auto max-h-[calc(92vh-120px)] space-y-4 font-vt323"><div class="bg-[#020617] border-2 border-[#1e293b] p-3 sm:p-4 shadow-[2px_2px_0px_#000] flex flex-col md:flex-row items-center md:items-start justify-between gap-4"><div class="text-center md:text-left space-y-1"><div class="inline-block px-2 py-0.5 bg-[#122131] border border-secondary text-secondary font-pixel text-[8px] uppercase" data-en="DOCUMENT: CURRICULUM VITAE // LEVEL 4 ARCHITECT" data-es="DOCUMENTO: CURRICULUM VITAE // ARQUITECTO NIVEL 4">DOCUMENTO: CURRICULUM VITAE // ARQUITECTO NIVEL 4</div><h2 class="font-pixel text-base sm:text-lg text-primary uppercase tracking-wide">JOSÉ GUILLERMO RODRÍGUEZ SAMCAM</h2><p class="font-silkscreen text-[11px] text-secondary uppercase tracking-wider" data-en="SOFTWARE DEVELOPMENT TECHNICIAN // FULLSTACK &amp; MOBILE DEVELOPER" data-es="TÉCNICO EN DESARROLLO DE SOFTWARE // DESARROLLADOR FULLSTACK MÓVIL">TÉCNICO EN DESARROLLO DE SOFTWARE // DESARROLLADOR FULLSTACK MÓVIL</p><div class="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-1 text-sm sm:text-base text-tertiary pt-1 font-vt323"><span class="inline-flex items-center gap-1"><span class="text-secondary">📍</span> 19 ave. 17-59 zona 10 Res. Los Alpes</span><span class="inline-flex items-center gap-1"><span class="text-secondary">📞</span> +502 30725394</span><a class="inline-flex items-center gap-1 text-secondary hover:underline" href="mailto:evomarketgt@icloud.com"><span class="text-secondary">✉️</span> evomarketgt@icloud.com</a></div></div><div class="flex flex-row md:flex-col gap-2 flex-shrink-0"><a class="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-[#0f172a] border border-secondary/80 text-secondary font-pixel text-[8.5px] uppercase pixel-btn-dark hover:border-secondary transition-all" href="https://github.com/Joguisam-gt" rel="noopener noreferrer" target="_blank"><span class="">GITHUB</span></a><a class="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-[#0f172a] border border-primary/80 text-primary font-pixel text-[8.5px] uppercase pixel-btn-dark hover:border-primary transition-all" href="https://www.linkedin.com/in/jose-guillermo-rodriguez-samcam-b161481a6/?isSelfProfile=true" rel="noopener noreferrer" target="_blank"><span class="">LINKEDIN</span></a></div></div><section class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] space-y-2"><div class="flex items-center gap-2 border-b border-secondary/40 pb-1.5"><span class="font-pixel text-[9px] text-secondary">[01]</span><h4 class="font-pixel text-xs text-secondary uppercase tracking-wide" data-en="ABOUT ME // PROFESSIONAL PROFILE" data-es="SOBRE MÍ // PERFIL PROFESIONAL">SOBRE MÍ // PERFIL PROFESIONAL</h4></div><p class="text-lg sm:text-xl text-on-surface leading-relaxed text-justify" data-en="Full Stack Developer with a strong focus on backend and scalable architecture. Experienced in designing REST APIs using Node.js, Express, PostgreSQL, and MongoDB, alongside automated workflows and AI integration using Python and n8n. Focused on clean code, SOLID principles, and building maintainable, high-impact technological solutions." data-es="Desarrollador Full Stack con sólido enfoque en backend y arquitectura escalable. Experiencia en diseño de APIs REST con Node.js, Express, PostgreSQL y MongoDB, además de flujos automatizados e integración de IA con Python y n8n. Enfocado en código limpio, principios SOLID y la construcción de soluciones tecnológicas mantenibles de alto impacto.">Desarrollador Full Stack con sólido enfoque en backend y arquitectura escalable. Experiencia en diseño de APIs REST con Node.js, Express, PostgreSQL y MongoDB, además de flujos automatizados e integración de IA con Python y n8n. Enfocado en código limpio, principios SOLID y la construcción de soluciones tecnológicas mantenibles de alto impacto.</p></section><section class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] space-y-3"><div class="flex items-center gap-2 border-b border-primary/40 pb-1.5"><span class="font-pixel text-[9px] text-primary">[02]</span><h4 class="font-pixel text-xs text-primary uppercase tracking-wide" data-en="WORK EXPERIENCE" data-es="EXPERIENCIA LABORAL">EXPERIENCIA LABORAL</h4></div><div class="space-y-3"><div class="bg-[#020617] border-l-4 border-secondary p-3 border-t border-r border-b border-[#1e293b]"><div class="flex flex-wrap items-center justify-between gap-1 mb-1"><span class="font-silkscreen text-xs text-secondary font-bold uppercase" data-en="TECHNICAL CONSULTANT // ALCORE" data-es="CONSULTOR TÉCNICO // ALCORE">CONSULTOR TÉCNICO // ALCORE</span><span class="font-pixel text-[8px] text-outline">2026 - 2026</span></div><p class="text-base sm:text-lg text-tertiary leading-snug" data-en="Designed system flow and managed technology migration from Redis to PostgreSQL using Node.js, improving persistence, system reliability, and long-term query performance." data-es="Diseño del flujo del sistema y migración tecnológica de Redis a PostgreSQL utilizando Node.js, mejorando la persistencia, la confiabilidad y el rendimiento de consultas a largo plazo.">Diseño del flujo del sistema y migración tecnológica de Redis a PostgreSQL utilizando Node.js, mejorando la persistencia, la confiabilidad y el rendimiento de consultas a largo plazo.</p></div><div class="bg-[#020617] border-l-4 border-primary p-3 border-t border-r border-b border-[#1e293b]"><div class="flex flex-wrap items-center justify-between gap-1 mb-1"><span class="font-silkscreen text-xs text-primary font-bold uppercase" data-en="TECHNICAL CONSULTANT // EVOMARKET GT" data-es="CONSULTOR TÉCNICO // EVOMARKET GT">CONSULTOR TÉCNICO // EVOMARKET GT</span><span class="font-pixel text-[8px] text-outline">2016 - 2025</span></div><p class="text-base sm:text-lg text-tertiary leading-snug" data-en="Executed software and commercial project consulting, technical supervision, automated sales funnels, and tailored digital business solutions." data-es="Ejecución de consultorías de software y proyectos comerciales, supervisión técnica, embudos de venta automatizados y soluciones digitales a medida para negocios.">Ejecución de consultorías de software y proyectos comerciales, supervisión técnica, embudos de venta automatizados y soluciones digitales a medida para negocios.</p></div><div class="bg-[#020617] border-l-4 border-[#38bdf8] p-3 border-t border-r border-b border-[#1e293b]"><div class="flex flex-wrap items-center justify-between gap-1 mb-1"><span class="font-silkscreen text-xs text-[#38bdf8] font-bold uppercase" data-en="JR. FRONTEND DEVELOPER &amp; COMMUNITY MANAGER // BIOAQUALA" data-es="PROGRAMADOR JR. FRONTEND &amp; COMMUNITY MANAGER // BIOAQUALA">PROGRAMADOR JR. FRONTEND &amp; COMMUNITY MANAGER // BIOAQUALA</span><span class="font-pixel text-[8px] text-outline">2016 - 2025</span></div><p class="text-base sm:text-lg text-tertiary leading-snug" data-en="Maintained and enhanced user interfaces, developed responsive landing pages, and managed web engagement and audience communication channels." data-es="Mantenimiento y optimización de interfaces de usuario, desarrollo de páginas de aterrizaje responsivas y gestión de canales de comunicación y engagement web.">Mantenimiento y optimización de interfaces de usuario, desarrollo de páginas de aterrizaje responsivas y gestión de canales de comunicación y engagement web.</p></div></div></section><section class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] space-y-3"><div class="flex items-center gap-2 border-b border-[#38bdf8]/40 pb-1.5"><span class="font-pixel text-[9px] text-[#38bdf8]">[03]</span><h4 class="font-pixel text-xs text-[#38bdf8] uppercase tracking-wide" data-en="TECHNICAL SKILLS" data-es="HABILIDADES TÉCNICAS">HABILIDADES TÉCNICAS</h4></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 font-silkscreen text-[9px]"><div class="bg-[#020617] border border-[#334155] p-2.5"><span class="font-pixel text-[8.5px] text-secondary block mb-1" data-en="LANGUAGES" data-es="LENGUAJES">LENGUAJES</span><p class="font-vt323 text-lg text-on-surface leading-snug">JavaScript, Python, TypeScript, HTML5, CSS3</p></div><div class="bg-[#020617] border border-[#334155] p-2.5"><span class="font-pixel text-[8.5px] text-primary block mb-1" data-en="FRAMEWORKS" data-es="FRAMEWORKS">FRAMEWORKS</span><p class="font-vt323 text-lg text-on-surface leading-snug">React, Node.js, Express, Tailwind CSS</p></div><div class="bg-[#020617] border border-[#334155] p-2.5"><span class="font-pixel text-[8.5px] text-[#38bdf8] block mb-1" data-en="DATABASES" data-es="BASES DE DATOS">BASES DE DATOS</span><p class="font-vt323 text-lg text-on-surface leading-snug">PostgreSQL, MongoDB, MySQL, Redis</p></div><div class="bg-[#020617] border border-[#334155] p-2.5"><span class="font-pixel text-[8.5px] text-[#f59e0b] block mb-1" data-en="TOOLS" data-es="HERRAMIENTAS">HERRAMIENTAS</span><p class="font-vt323 text-lg text-on-surface leading-snug">Git, Docker, Figma, VSCode, n8n, GitHub Projects, Notion</p></div></div></section><div class="grid grid-cols-1 md:grid-cols-2 gap-3.5"><section class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] space-y-2.5"><div class="flex items-center gap-2 border-b border-secondary/40 pb-1.5"><span class="font-pixel text-[9px] text-secondary">[04]</span><h4 class="font-pixel text-xs text-secondary uppercase tracking-wide" data-en="SOFT SKILLS" data-es="HABILIDADES BLANDAS">HABILIDADES BLANDAS</h4></div><ul class="space-y-1.5 text-lg text-tertiary font-vt323"><li class="flex items-center gap-2"><span class="text-secondary text-sm">▶</span><span class="" data-en="Complex technical problem solving" data-es="Resolución de problemas técnicos complejos">Resolución de problemas técnicos complejos</span></li><li class="flex items-center gap-2"><span class="text-secondary text-sm">▶</span><span class="" data-en="High-impact collaborative teamwork" data-es="Trabajo en equipo colaborativo de alto impacto">Trabajo en equipo colaborativo de alto impacto</span></li><li class="flex items-center gap-2"><span class="text-secondary text-sm">▶</span><span class="" data-en="Assertive, clear and empathetic communication" data-es="Comunicación asertiva, clara y empática">Comunicación asertiva, clara y empática</span></li><li class="flex items-center gap-2"><span class="text-secondary text-sm">▶</span><span class="" data-en="Fast adaptability and continuous self-learning" data-es="Adaptabilidad ágil y aprendizaje continuo">Adaptabilidad ágil y aprendizaje continuo</span></li></ul></section><section class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] space-y-2.5"><div class="flex items-center gap-2 border-b border-primary/40 pb-1.5"><span class="font-pixel text-[9px] text-primary">[05]</span><h4 class="font-pixel text-xs text-primary uppercase tracking-wide" data-en="EDUCATION &amp; TRAINING" data-es="FORMACIÓN ACADÉMICA">FORMACIÓN ACADÉMICA</h4></div><div class="space-y-2"><div class="border-l-2 border-primary pl-2"><span class="font-silkscreen text-[10px] text-primary font-bold block" data-en="SOFTWARE DEVELOPMENT TECHNICIAN" data-es="TÉCNICO EN DESARROLLO DE SOFTWARE">TÉCNICO EN DESARROLLO DE SOFTWARE</span><span class="text-outline text-xs block">CampusLands</span></div><div class="border-l-2 border-primary pl-2"><span class="font-silkscreen text-[10px] text-on-surface font-bold block" data-en="HIGH SCHOOL DIPLOMA IN SCIENCE &amp; LETTERS" data-es="BACHILLER EN CIENCIAS Y LETRAS">BACHILLER EN CIENCIAS Y LETRAS</span><span class="text-outline text-xs block">IMB-PC</span></div><div class="border-l-2 border-[#334155] pl-2"><span class="font-silkscreen text-[10px] text-outline font-bold block" data-en="PRIMARY &amp; MIDDLE SCHOOL" data-es="PRIMARIA Y BÁSICOS">PRIMARIA Y BÁSICOS</span><span class="text-outline text-xs block">Centro Escolar El Roble</span></div></div></section></div><section class="bg-[#0f172a] border-2 border-[#1e293b] p-3.5 shadow-[2px_2px_0px_#000] space-y-2.5"><div class="flex items-center gap-2 border-b border-secondary/40 pb-1.5"><span class="font-pixel text-[9px] text-secondary">[06]</span><h4 class="font-pixel text-xs text-secondary uppercase tracking-wide" data-en="PROFESSIONAL REFERENCES" data-es="REFERENCIAS LABORALES">REFERENCIAS LABORALES</h4></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3"><div class="bg-[#020617] border border-[#334155] p-3"><span class="font-pixel text-[9px] text-secondary block mb-1">CARLOS GUILLERMO RODRÍGUEZ BARRERA</span><span class="font-silkscreen text-[9px] text-outline block mb-1" data-en="Founder BioaquaLA" data-es="Fundador BioaquaLA">Fundador BioaquaLA</span><a class="font-vt323 text-lg text-primary hover:underline" href="tel:+50259514665">📞 +502 59514665</a></div><div class="bg-[#020617] border border-[#334155] p-3"><span class="font-pixel text-[9px] text-primary block mb-1">AUGUSTO HIGUEROS</span><span class="font-silkscreen text-[9px] text-outline block mb-1" data-en="Business Administrator" data-es="Administrador de Empresas">Administrador de Empresas</span><a class="font-vt323 text-lg text-secondary hover:underline" href="tel:+50242199577">📞 +502 42199577</a></div></div></section></div><div class="bg-[#0f172a] border-t-2 border-[#1e293b] px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-2"><div class="flex items-center gap-2"><span class="w-2 h-2 bg-secondary pixel-blink"></span><span class="font-vt323 text-lg text-secondary" data-en="STATUS: CV VERIFIED // SYS.TERMINAL" data-es="ESTADO: CV VERIFICADO // SYS.TERMINAL">ESTADO: CV VERIFICADO // SYS.TERMINAL</span></div><div class="flex items-center gap-2"><button class="font-pixel text-[9px] uppercase px-3 py-1 bg-secondary text-on-secondary pixel-btn-lime border border-[#2c4900] cursor-pointer" data-en="[ CONTACT FOR HIRE &gt; ]" data-es="[ CONTACTAR PARA CONTRATACIÓN &gt; ]" onclick="toggleCvModal(false); toggleContactModal(true);" type="button">[ CONTACTAR PARA CONTRATACIÓN &gt; ]</button><button class="font-silkscreen text-[10px] uppercase text-outline hover:text-white cursor-pointer" data-en="[ ESC / CLOSE ]" data-es="[ ESC / CERRAR ]" onclick="toggleCvModal(false)" type="button">[ ESC / CERRAR ]</button></div></div></div></div>
 <!-- ================= MODAL: CONTACTARME / SOLICITAR ENTREVISTA ================= -->
-<div aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/85 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-150" id="contact-modal" role="dialog">
+<div aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/85 backdrop-blur-sm transition-opacity duration-150 opacity-0 pointer-events-none" id="contact-modal" role="dialog">
 <div class="fixed inset-0 crt-overlay opacity-30 pointer-events-none"></div>
-<div class="relative w-full max-w-xl bg-[#071322] border-4 border-[#334155] pixel-box-primary shadow-[8px_8px_0px_#020617] overflow-hidden z-10" id="contact-modal-dialog">
+<div class="relative w-full max-w-xl bg-[#071322] border-4 border-[#334155] pixel-box-primary shadow-[8px_8px_0px_#020617] overflow-hidden z-10 animate-modal-pop" id="contact-modal-dialog">
 <div class="bg-[#0f172a] border-b-4 border-[#334155] px-3 sm:px-4 py-2 flex items-center justify-between select-none">
 <div class="flex items-center gap-2">
-<span class="inline-block w-2.5 h-2.5 bg-secondary pixel-blink"></span>
+<span class="inline-block w-2.5 h-2.5 bg-secondary"></span>
 <span class="font-pixel text-[9px] sm:text-[10px] text-secondary uppercase tracking-wider">[ SOLICITAR ENTREVISTA // CONTACT PROTOCOL ]</span>
 </div>
 <button aria-label="Cerrar modal" class="px-2.5 py-0.5 bg-[#ef4444] text-white hover:bg-[#dc2626] font-pixel text-[10px] border-2 border-[#7f1d1d] shadow-[2px_2px_0px_#000] cursor-pointer" onclick="toggleContactModal(false)" type="button">
           [ X ]
         </button>
 </div>
-<div class="p-4 sm:p-5 space-y-3.5 max-h-[85vh] overflow-y-auto">
-<div class="flex items-start justify-between gap-2 border-b border-[#1e293b] pb-2">
-<div>
-<p class="text-on-surface font-pixel text-[10px] sm:text-xs leading-relaxed uppercase">
-              Inicia comunicación directa con Jose Guillermo Rodriguez Samcam
-            </p>
-<p class="font-vt323 text-lg text-tertiary">Disponible para entrevistas técnicas y nuevos proyectos de software.</p>
-</div>
-<span class="hidden sm:inline-block px-2 py-0.5 bg-secondary/10 border border-secondary text-secondary font-pixel text-[8px] uppercase">ACTIVO</span>
-</div>
-<!-- Email Directo Destacado con Copia Rápida -->
-<div class="bg-[#020617] border-2 border-secondary/60 p-3 sm:p-3.5 shadow-[2px_2px_0px_#000] space-y-2.5">
-<div class="flex items-center justify-between">
-<span class="font-silkscreen text-[9px] sm:text-[10px] text-outline uppercase tracking-wider">CANAL DIRECTO // EMAIL OFICIAL:</span>
-<span class="font-pixel text-[7.5px] sm:text-[8px] text-secondary bg-[#122131] border border-secondary/40 px-1.5 py-0.5">PRIORITY 1</span>
-</div>
-<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 bg-[#0d1c2d] p-2.5 sm:p-3 border-2 border-[#1e293b]">
-<a class="font-pixel text-[11px] sm:text-xs text-secondary hover:underline tracking-tight flex items-center gap-2 overflow-x-hidden text-ellipsis select-all" href="mailto:evomarketgt@icloud.com" onclick="RetroAudio.playSelectSound()" title="Clic para abrir cliente de correo">
-<span class="material-symbols-outlined text-base text-secondary flex-shrink-0">mail</span>
-<span class="truncate">evomarketgt@icloud.com</span>
-</a>
-<button class="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-2 bg-secondary text-on-secondary font-pixel text-[8.5px] sm:text-[9px] uppercase pixel-btn-lime border-2 border-[#2c4900] cursor-pointer flex-shrink-0" id="copy-email-btn" onclick="copyContactEmail()" type="button">
-<span class="material-symbols-outlined text-sm leading-none">content_copy</span>
-<span id="copy-email-text" class="">[ COPIAR CORREO ]</span>
-</button>
-</div>
-</div>
-<!-- Formulario Retro -->
-<form class="space-y-2.5 bg-[#020617] border-2 border-[#1e293b] p-3" onsubmit="handleContactSubmit(event)">
-<div class="flex items-center justify-between border-b border-[#1e293b] pb-1">
-<span class="font-pixel text-[8.5px] text-primary uppercase">[ TERMINAL TRANSMITTER // FORM ]</span>
-<span class="font-silkscreen text-[9px] text-outline">SECURE_SSL</span>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-<div>
-<label class="block font-silkscreen text-[9px] text-outline uppercase mb-1">Nombre / Empresa:</label>
-<input class="w-full bg-[#0d1c2d] border-2 border-[#334155] focus:border-secondary focus:ring-0 text-on-surface font-vt323 text-lg px-2.5 py-1" id="sender-name" placeholder="Ej. Tech Recruiter / Empresa" required="" type="text">
-</div>
-<div>
-<label class="block font-silkscreen text-[9px] text-outline uppercase mb-1">Tu Correo Electrónico:</label>
-<input class="w-full bg-[#0d1c2d] border-2 border-[#334155] focus:border-secondary focus:ring-0 text-on-surface font-vt323 text-lg px-2.5 py-1" id="sender-email" placeholder="contacto@empresa.com" required="" type="email">
-</div>
-</div>
-<div>
-<label class="block font-silkscreen text-[9px] text-outline uppercase mb-1">Asunto de Terminal:</label>
-<select class="w-full bg-[#0d1c2d] border-2 border-[#334155] focus:border-secondary focus:ring-0 text-secondary font-pixel text-[9px] px-2.5 py-1.5 uppercase" id="sender-subject">
-<option value="Agendar Entrevista Técnica">⚡ AGENDAR ENTREVISTA TÉCNICA</option>
-<option value="Propuesta de Proyecto Software">💼 PROPUESTA DE PROYECTO SOFTWARE</option>
-<option value="Oferta Laboral Remoto">🌐 OFERTA LABORAL (REMOTO / FULL-TIME)</option>
-<option value="Consulta General">📡 CONSULTA GENERAL DE DESARROLLO</option>
-</select>
-</div>
-<div>
-<label class="block font-silkscreen text-[9px] text-outline uppercase mb-1">Mensaje / Detalle de Entrevista:</label>
-<textarea class="w-full bg-[#0d1c2d] border-2 border-[#334155] focus:border-secondary focus:ring-0 text-on-surface font-vt323 text-lg px-2.5 py-1" id="sender-message" placeholder="Describe los detalles de la posición o reunión técnica..." required="" rows="2"></textarea>
-</div>
-<div class="pt-1">
-<button class="w-full text-center px-4 py-2.5 bg-secondary text-on-secondary font-pixel text-[10px] uppercase pixel-btn-lime border-2 border-[#2c4900] cursor-pointer" type="submit">
-              [ TRANSMITIR SOLICITUD A EVOMARKETGT@ICLOUD.COM &gt; ]
-            </button>
-</div>
-</form>
-</div>
+<div class="p-4 sm:p-5 space-y-3.5 max-h-[85vh] overflow-y-auto"><div class="flex items-start justify-between gap-2 border-b border-[#1e293b] pb-2"><div><p class="text-on-surface font-pixel text-[10px] sm:text-xs leading-relaxed uppercase" data-en="Initiate direct communication with Jose Guillermo Rodriguez Samcam" data-es="Inicia comunicación directa con Jose Guillermo Rodriguez Samcam">Inicia comunicación directa con Jose Guillermo Rodriguez Samcam</p><p class="font-vt323 text-lg text-tertiary" data-en="Available for technical interviews and new software projects." data-es="Disponible para entrevistas técnicas y nuevos proyectos de software.">Disponible para entrevistas técnicas y nuevos proyectos de software.</p></div><span class="hidden sm:inline-block px-2 py-0.5 bg-secondary/10 border border-secondary text-secondary font-pixel text-[8px] uppercase" data-en="ACTIVE" data-es="ACTIVO">ACTIVO</span></div><div class="bg-[#020617] border-2 border-secondary/60 p-3 sm:p-3.5 shadow-[2px_2px_0px_#000] space-y-2.5"><div class="flex items-center justify-between"><span class="font-silkscreen text-[9px] sm:text-[10px] text-outline uppercase tracking-wider" data-en="DIRECT CHANNEL // OFFICIAL EMAIL:" data-es="CANAL DIRECTO // EMAIL OFICIAL:">CANAL DIRECTO // EMAIL OFICIAL:</span><span class="font-pixel text-[7.5px] sm:text-[8px] text-secondary bg-[#122131] border border-secondary/40 px-1.5 py-0.5">PRIORITY 1</span></div><div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 bg-[#0d1c2d] p-2.5 sm:p-3 border-2 border-[#1e293b]"><a class="font-pixel text-[11px] sm:text-xs text-secondary hover:underline tracking-tight flex items-center gap-2 overflow-x-hidden text-ellipsis select-all" href="mailto:evomarketgt@icloud.com" onclick="RetroAudio.playSelectSound()" title="Clic para abrir cliente de correo"><span class="material-symbols-outlined text-base text-secondary flex-shrink-0">mail</span><span class="truncate">evomarketgt@icloud.com</span></a><button class="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-2 bg-secondary text-on-secondary font-pixel text-[8.5px] sm:text-[9px] uppercase pixel-btn-lime border-2 border-[#2c4900] cursor-pointer flex-shrink-0" id="copy-email-btn" onclick="copyContactEmail()" type="button"><span class="material-symbols-outlined text-sm leading-none">content_copy</span><span class="" data-en="[ COPY EMAIL ]" data-es="[ COPIAR CORREO ]" id="copy-email-text">[ COPIAR CORREO ]</span></button></div></div><form class="space-y-2.5 bg-[#020617] border-2 border-[#1e293b] p-3" onsubmit="handleContactSubmit(event)"><div class="flex items-center justify-between border-b border-[#1e293b] pb-1"><span class="font-pixel text-[8.5px] text-primary uppercase">[ TERMINAL TRANSMITTER // FORM ]</span><span class="font-silkscreen text-[9px] text-outline">SECURE_SSL</span></div><div><label class="font-silkscreen text-[10px] text-secondary uppercase block mb-1" data-en="NAME / COMPANY:" data-es="NOMBRE / EMPRESA:" data-i18n-en="NAME / COMPANY:" data-i18n-es="NOMBRE / EMPRESA:">NOMBRE / EMPRESA:</label><input class="w-full bg-[#071322] border-2 border-[#334155] focus:border-secondary focus:ring-0 text-on-surface font-vt323 text-lg px-2.5 py-1 outline-none transition-colors" data-en-placeholder="E.g.: John Doe or TechCorp Inc." data-es-placeholder="Ej: Juan Pérez o TechCorp Inc." data-ph-en="E.g.: John Doe or TechCorp Inc." data-ph-es="Ej: Juan Pérez o TechCorp Inc." id="sender-name" name="name" placeholder="Ej: Juan Pérez o TechCorp Inc." required="" type="text"></div><div><label class="font-silkscreen text-[10px] text-secondary uppercase block mb-1" data-en="YOUR EMAIL ADDRESS (REPLY):" data-es="TU CORREO ELECTRÓNICO (RESPUESTA):" data-i18n-en="YOUR EMAIL ADDRESS (REPLY):" data-i18n-es="TU CORREO ELECTRÓNICO (RESPUESTA):">TU CORREO ELECTRÓNICO (RESPUESTA):</label><input class="w-full bg-[#071322] border-2 border-[#334155] focus:border-secondary focus:ring-0 text-on-surface font-vt323 text-lg px-2.5 py-1 outline-none transition-colors" data-en-placeholder="name@company.com" data-es-placeholder="nombre@empresa.com" data-ph-en="name@company.com" data-ph-es="nombre@empresa.com" id="sender-email" name="email" placeholder="nombre@empresa.com" required="" type="email"></div><div><label class="font-silkscreen text-[10px] text-secondary uppercase block mb-1.5" data-en="REQUEST TYPE:" data-es="TIPO DE SOLICITUD:" id="lbl-req-type">TIPO DE SOLICITUD:</label><div class="relative w-full mb-1.5" id="custom-retro-dropdown"><button class="w-full flex items-center justify-between px-3 py-2 bg-[#071322] border-2 border-[#334155] hover:border-secondary font-pixel text-[10px] text-on-surface cursor-pointer shadow-[2px_2px_0px_#000] transition-colors" id="retro-dropdown-btn" onclick="const m = document.getElementById('retro-dropdown-list'); m.classList.toggle('hidden'); if(window.RetroAudio) RetroAudio.playSelectSound();" type="button"><span class="truncate" data-en="🚀 Freelance Project / Consulting" data-es="🚀 Proyecto Freelance / Consultoría" id="retro-dropdown-label">🚀 Proyecto Freelance / Consultoría</span><span class="text-secondary text-xs font-mono ml-2 flex-shrink-0">▼</span></button><div class="absolute left-0 right-0 top-full mt-1 bg-[#0d1c2d] border-2 border-secondary shadow-[4px_4px_0px_#000] z-50 flex flex-col p-1.5 gap-1 font-silkscreen text-[10px] hidden" id="retro-dropdown-list"><div class="retro-opt p-2 text-on-surface hover:bg-secondary hover:text-black cursor-pointer transition-colors" data-en="💼 Job Offer / Technical Interview" data-es="💼 Oferta Laboral / Entrevista Técnica" onclick="document.getElementById('retro-dropdown-label').textContent = '💼 Job Offer / Technical Interview'; document.getElementById('contact-subject-input').value = '💼 Job Offer / Technical Interview'; document.getElementById('retro-dropdown-list').classList.add('hidden'); if(window.RetroAudio) RetroAudio.playSelectSound();">💼 Oferta Laboral / Entrevista Técnica</div><div class="retro-opt p-2 text-on-surface hover:bg-secondary hover:text-black cursor-pointer transition-colors" data-en="🚀 Freelance Project / Consulting" data-es="🚀 Proyecto Freelance / Consultoría" onclick="document.getElementById('retro-dropdown-label').textContent = '🚀 Freelance Project / Consulting'; document.getElementById('contact-subject-input').value = '🚀 Freelance Project / Consulting'; document.getElementById('retro-dropdown-list').classList.add('hidden'); if(window.RetroAudio) RetroAudio.playSelectSound();">🚀 Proyecto Freelance / Consultoría</div><div class="retro-opt p-2 text-on-surface hover:bg-secondary hover:text-black cursor-pointer transition-colors" data-en="🛠️ Software Architecture / Backend" data-es="🛠️ Arquitectura de Software / Backend" onclick="document.getElementById('retro-dropdown-label').textContent = '🛠️ Software Architecture / Backend'; document.getElementById('contact-subject-input').value = '🛠️ Software Architecture / Backend'; document.getElementById('retro-dropdown-list').classList.add('hidden'); if(window.RetroAudio) RetroAudio.playSelectSound();">🛠️ Arquitectura de Software / Backend</div><div class="retro-opt p-2 text-on-surface hover:bg-secondary hover:text-black cursor-pointer transition-colors" data-en="👾 Open Source Collaboration" data-es="👾 Colaboración Open Source" onclick="document.getElementById('retro-dropdown-label').textContent = '👾 Open Source Collaboration'; document.getElementById('contact-subject-input').value = '👾 Open Source Collaboration'; document.getElementById('retro-dropdown-list').classList.add('hidden'); if(window.RetroAudio) RetroAudio.playSelectSound();">👾 Colaboración Open Source</div><div class="retro-opt p-2 text-on-surface hover:bg-secondary hover:text-black cursor-pointer transition-colors" data-en="📡 General Inquiry / Greeting" data-es="📡 Consulta General / Saludo" onclick="document.getElementById('retro-dropdown-label').textContent = '📡 General Inquiry / Greeting'; document.getElementById('contact-subject-input').value = '📡 General Inquiry / Greeting'; document.getElementById('retro-dropdown-list').classList.add('hidden'); if(window.RetroAudio) RetroAudio.playSelectSound();">📡 Consulta General / Saludo</div></div><input class="" id="contact-subject-input" type="hidden" value="🚀 Freelance Project / Consulting"></div></div><div><label class="block font-silkscreen text-[10px] text-secondary uppercase mb-1" data-en="MESSAGE / PROPOSAL DETAILS:" data-es="MENSAJE / DETALLES DE LA PROPUESTA:" data-i18n-en="MESSAGE / PROPOSAL DETAILS:" data-i18n-es="MENSAJE / DETALLES DE LA PROPUESTA:">MENSAJE / DETALLES DE LA PROPUESTA:</label><textarea class="w-full bg-[#071322] border-2 border-[#334155] focus:border-secondary focus:ring-0 text-on-surface font-vt323 text-lg px-2.5 py-1 outline-none transition-colors" data-en-placeholder="Tell me about the role, project, or stack..." data-es-placeholder="Cuéntame sobre el puesto, proyecto o tecnologías..." data-ph-en="Tell me about the role, project, or stack..." data-ph-es="Cuéntame sobre el puesto, proyecto o tecnologías..." id="sender-message" placeholder="Cuéntame sobre el puesto, proyecto o tecnologías..." required="" rows="3"></textarea></div><div class="pt-1"><button class="w-full text-center px-4 py-2.5 bg-secondary text-on-secondary font-pixel text-[10px] uppercase pixel-btn-lime border-2 border-[#2c4900] cursor-pointer" type="submit"><span class="" data-en="[ TRANSMIT REQUEST TO EVOMARKETGT@ICLOUD.COM &gt; ]" data-es="[ TRANSMITIR SOLICITUD A EVOMARKETGT@ICLOUD.COM &gt; ]">[ TRANSMITIR SOLICITUD A EVOMARKETGT@ICLOUD.COM &gt; ]</span></button></div></form></div>
 <div class="bg-[#0f172a] border-t-2 border-[#1e293b] px-4 py-2 text-right">
 <button class="font-silkscreen text-[10px] uppercase text-outline hover:text-white cursor-pointer" onclick="toggleContactModal(false)" type="button">
           [ CANCELAR / VOLVER ]
@@ -1005,6 +583,51 @@
       };
     })();
 
+    function toggleProjectsModal(show) {
+      const modal = document.getElementById('projects-modal');
+      const dialog = document.getElementById('projects-modal-dialog');
+      if (!modal) return;
+      if (show) {
+        RetroAudio.playPowerUpSound();
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.classList.add('opacity-100', 'pointer-events-auto');
+        if (dialog) {
+          dialog.classList.remove('animate-modal-pop');
+          void dialog.offsetWidth;
+          dialog.classList.add('animate-modal-pop');
+        }
+        document.body.style.overflow = 'hidden';
+      } else {
+        RetroAudio.playCloseSound();
+        modal.classList.remove('opacity-100', 'pointer-events-auto');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function filterProjects(category, event) {
+      RetroAudio.playSelectSound();
+      const tabs = document.querySelectorAll('.project-tab-btn');
+      tabs.forEach(tab => {
+        tab.classList.remove('bg-secondary', 'text-on-secondary', 'active');
+        tab.classList.add('bg-[#1e293b]', 'text-on-surface');
+      });
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.remove('bg-[#1e293b]', 'text-on-surface');
+        event.currentTarget.classList.add('bg-secondary', 'text-on-secondary', 'active');
+      }
+
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        const cats = card.getAttribute('data-category') || '';
+        if (category === 'all' || cats.includes(category)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
     function toggleSkillsModal(show) {
       const modal = document.getElementById('skills-modal');
       const dialog = document.getElementById('skills-modal-dialog');
@@ -1131,9 +754,10 @@
     }
 
     // Cerrar al hacer clic en fondo exterior
-    ['skills-modal', 'contact-modal', 'about-modal'].forEach(id => {
+    ['projects-modal', 'skills-modal', 'contact-modal', 'about-modal'].forEach(id => {
       document.getElementById(id)?.addEventListener('click', function(e) {
         if (e.target === this) {
+          if (id === 'projects-modal') toggleProjectsModal(false);
           if (id === 'skills-modal') toggleSkillsModal(false);
           if (id === 'contact-modal') toggleContactModal(false);
           if (id === 'about-modal') toggleAboutModal(false);
@@ -1141,6 +765,330 @@
       });
     });
   </script>
+<script id="i18n-engine">
+  const I18N_DATA = {
+    es: {
+      status_badge: '● DISPONIBLE PARA PROYECTOS / OPEN TO WORK',
+      greeting: 'HOLA, SOY',
+      role_tag: '⚡ TÉCNICO EN DESARROLLO DE SOFTWARE',
+      bio_hero: 'Desarrollador de software apasionado por la creación de sistemas robustos, código limpio, arquitecturas escalables y experiencias digitales interactivas con máxima precisión.',
+      btn_contact: '[ CONTACTARME > ]',
+      btn_projects: '[ VER PROYECTOS ]',
+      btn_skills: '[ VER HABILIDADES ]',
+      btn_about: '[ SOBRE MÍ ]',
+      stat_arch: 'Dev Architecture',
+      stat_clean: 'Best Practices',
+      stat_sec: 'Sec Clearance',
+      badge_title: 'COMPANY ID // TECH BADGE',
+      badge_fullname: 'NOMBRE COMPLETO',
+      dept_title: 'SOFTWARE ENGINEERING',
+      footer_copy: '© 2025 Jose Guillermo Rodriguez Samcam. Técnico en desarrollo de software.',
+      footer_avail: 'Available for Q2/Q3 Tech Projects',
+      modal_projects_title: '[DIR: /DEV/PROJECTS] REPOSITORIOS Y PROYECTOS // JOSE GUILLERMO',
+      modal_skills_title: '[ SKILLS & TECH ARSENAL // JOSE GUILLERMO ]',
+      modal_about_title: '[ DEV_LORE // LOG_01: SOBRE MÍ - JOSE GUILLERMO RODRIGUEZ SAMCAM ]',
+      modal_contact_title: '[ SOLICITAR ENTREVISTA // CONTACT PROTOCOL ]'
+    },
+    en: {
+      status_badge: '● AVAILABLE FOR PROJECTS / OPEN TO WORK',
+      greeting: "HELLO, I'M",
+      role_tag: '⚡ SOFTWARE DEVELOPMENT TECHNICIAN',
+      bio_hero: 'Software developer passionate about engineering robust systems, clean code, scalable architectures, and interactive digital experiences with absolute precision.',
+      btn_contact: '[ CONTACT ME > ]',
+      btn_projects: '[ VIEW PROJECTS ]',
+      btn_skills: '[ VIEW SKILLS ]',
+      btn_about: '[ ABOUT ME ]',
+      stat_arch: 'Dev Architecture',
+      stat_clean: 'Best Practices',
+      stat_sec: 'Sec Clearance',
+      badge_title: 'COMPANY ID // TECH BADGE',
+      badge_fullname: 'FULL NAME',
+      dept_title: 'SOFTWARE ENGINEERING',
+      footer_copy: '© 2025 Jose Guillermo Rodriguez Samcam. Software Development Technician.',
+      footer_avail: 'Available for Q2/Q3 Tech Projects',
+      modal_projects_title: '[DIR: /DEV/PROJECTS] REPOSITORIES & PROJECTS // JOSE GUILLERMO',
+      modal_skills_title: '[ SKILLS & TECH ARSENAL // JOSE GUILLERMO ]',
+      modal_about_title: '[ DEV_LORE // LOG_01: ABOUT ME - JOSE GUILLERMO RODRIGUEZ SAMCAM ]',
+      modal_contact_title: '[ SCHEDULE INTERVIEW // CONTACT PROTOCOL ]'
+    }
+  };
+
+  let currentLang = 'es';
+
+  function switchLanguage(lang) {
+    if (lang === currentLang) return;
+    currentLang = lang;
+    if (typeof RetroAudio !== 'undefined' && RetroAudio.playPowerUpSound) {
+      RetroAudio.playPowerUpSound();
+    }
+
+    const btnEs = document.getElementById('lang-btn-es');
+    const btnEn = document.getElementById('lang-btn-en');
+
+    if (lang === 'en') {
+      if (btnEs) {
+        btnEs.className = 'px-2 py-1 bg-[#1e293b] text-outline hover:text-white border border-[#334155] cursor-pointer transition-all uppercase';
+      }
+      if (btnEn) {
+        btnEn.className = 'px-2 py-1 bg-secondary text-on-secondary border border-[#2c4900] shadow-[1px_1px_0px_#000] cursor-pointer transition-all uppercase font-bold';
+      }
+      document.documentElement.lang = 'en';
+    } else {
+      if (btnEs) {
+        btnEs.className = 'px-2 py-1 bg-secondary text-on-secondary border border-[#2c4900] shadow-[1px_1px_0px_#000] cursor-pointer transition-all uppercase font-bold';
+      }
+      if (btnEn) {
+        btnEn.className = 'px-2 py-1 bg-[#1e293b] text-outline hover:text-white border border-[#334155] cursor-pointer transition-all uppercase';
+      }
+      document.documentElement.lang = 'es';
+    }
+
+    const d = I18N_DATA[lang];
+    if (!d) return;
+
+    const statusBadge = document.querySelector('main .lg\\:col-span-7 .pixel-badge span.font-pixel');
+    if (statusBadge) statusBadge.textContent = d.status_badge;
+
+    const greetingSpan = document.querySelector('h1 span.font-silkscreen');
+    if (greetingSpan) greetingSpan.textContent = d.greeting;
+
+    const roleTags = document.querySelectorAll('span.font-pixel.text-secondary.uppercase');
+    roleTags.forEach(el => {
+      if (el.textContent.includes('DESARROLLO') || el.textContent.includes('DEVELOPMENT')) {
+        el.textContent = d.role_tag;
+      }
+    });
+
+    const bioHero = document.querySelector('main .lg\\:col-span-7 > p.font-vt323');
+    if (bioHero) bioHero.textContent = d.bio_hero;
+
+    const heroButtons = document.querySelectorAll('main .lg\\:col-span-7 .flex.flex-wrap button');
+    if (heroButtons.length >= 4) {
+      const c0 = heroButtons[0].querySelector('span:last-child'); if (c0) c0.textContent = d.btn_contact;
+      const c1 = heroButtons[1].querySelector('span:last-child'); if (c1) c1.textContent = d.btn_projects;
+      const c2 = heroButtons[2].querySelector('span:last-child'); if (c2) c2.textContent = d.btn_skills;
+      const c3 = heroButtons[3].querySelector('span:last-child'); if (c3) c3.textContent = d.btn_about;
+    }
+
+    const fullNameLabel = document.querySelector('div.font-silkscreen.text-\\[10px\\].text-outline.uppercase');
+    if (fullNameLabel && (fullNameLabel.textContent.includes('NOMBRE') || fullNameLabel.textContent.includes('FULL NAME'))) {
+      fullNameLabel.textContent = d.badge_fullname;
+    }
+
+    const footerCopy = document.querySelector('footer p');
+    if (footerCopy) footerCopy.textContent = d.footer_copy;
+  }
+</script><script class="" id="dropdown-engine">
+  function toggleCustomDropdown(forceState) {
+    if (typeof RetroAudio !== 'undefined' && RetroAudio.playSelectSound) {
+      RetroAudio.playSelectSound();
+    }
+    const menu = document.getElementById('inquiry-dropdown-menu');
+    const btn = document.getElementById('inquiry-dropdown-btn');
+    const arrow = document.getElementById('inquiry-dropdown-arrow');
+    if (!menu) return;
+    const isOpen = !menu.classList.contains('hidden');
+    const nextState = (typeof forceState === 'boolean') ? forceState : !isOpen;
+    if (nextState) {
+      menu.classList.remove('hidden');
+      if (btn) btn.setAttribute('aria-expanded', 'true');
+      if (arrow) arrow.textContent = '▲';
+    } else {
+      menu.classList.add('hidden');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+      if (arrow) arrow.textContent = '▼';
+    }
+  }
+
+  function selectCustomOption(val, icon, elem) {
+    if (typeof RetroAudio !== 'undefined' && RetroAudio.playPowerUpSound) {
+      RetroAudio.playPowerUpSound();
+    }
+    const hiddenInput = document.getElementById('sender-subject');
+    if (hiddenInput) hiddenInput.value = val;
+    const selectedSpan = document.getElementById('inquiry-dropdown-selected');
+    if (selectedSpan && elem) {
+      const textEs = elem.getAttribute('data-es') || val;
+      const textEn = elem.getAttribute('data-en') || val;
+      const currentDocLang = document.documentElement.lang || 'es';
+      const currentText = currentDocLang === 'en' ? textEn : textEs;
+      selectedSpan.innerHTML = `<span class="text-secondary text-sm">${icon}</span><span data-es="${textEs}" data-en="${textEn}">${currentText}</span>`;
+    }
+    document.querySelectorAll('.dropdown-opt').forEach(opt => {
+      opt.classList.remove('bg-[#122131]', 'text-secondary');
+      opt.classList.add('text-on-surface');
+    });
+    if (elem) {
+      elem.classList.remove('text-on-surface');
+      elem.classList.add('bg-[#122131]', 'text-secondary');
+    }
+    toggleCustomDropdown(false);
+  }
+
+  document.addEventListener('click', function(e) {
+    const dropdown = document.getElementById('custom-inquiry-dropdown');
+    if (dropdown && !dropdown.contains(e.target)) {
+      toggleCustomDropdown(false);
+    }
+  });
+</script>
+<script id="boot-init-script">
+function dismissBootLoader() {
+  const loader = document.getElementById('boot-loader');
+  if (loader) {
+    loader.style.opacity = '0';
+    loader.style.transition = 'opacity 0.3s steps(4, end)';
+    setTimeout(() => {
+      loader.style.display = 'none';
+      loader.remove();
+      document.body.style.overflow = '';
+    }, 320);
+  }
+  if (typeof RetroAudio !== 'undefined' && RetroAudio.playPowerUpSound) {
+    RetroAudio.playPowerUpSound();
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  // Asegurar que todos los modales estén cerrados
+  ['contact-modal', 'projects-modal', 'skills-modal', 'about-modal', 'cv-modal'].forEach(id => {
+    const m = document.getElementById(id);
+    if (m) {
+      m.classList.remove('opacity-100', 'pointer-events-auto');
+      m.classList.add('opacity-0', 'pointer-events-none');
+    }
+  });
+
+  // Forzar español al inicio de forma exhaustiva
+  if (typeof switchLanguage === 'function') {
+    switchLanguage('es');
+  }
+  document.querySelectorAll('[data-es]').forEach(el => {
+    el.textContent = el.getAttribute('data-es');
+  });
+  document.querySelectorAll('[data-es-placeholder]').forEach(el => {
+    el.placeholder = el.getAttribute('data-es-placeholder');
+  });
+
+  // Secuencia animada del Boot Loader
+  let pct = 0;
+  const fill = document.getElementById('boot-progress-fill');
+  const label = document.getElementById('boot-status-label');
+  const pctText = document.getElementById('boot-progress-pct');
+  const terminal = document.getElementById('boot-terminal-lines');
+
+  const steps = [
+    { p: 25, txt: 'CONNECTING CORE APIS...', term: '> CONNECTING CORE APIS... [OK]' },
+    { p: 55, txt: 'PARSING REPOSITORIES & SKILLS...', term: '> PARSING REPOSITORIES & SKILLS... [OK]' },
+    { p: 85, txt: 'CONFIGURING RETRO AUDIO SYNTH...', term: '> CONFIGURING RETRO AUDIO SYNTH... [OK]' },
+    { p: 100, txt: 'SYS.TERMINAL ONLINE', term: '> SYS.TERMINAL ONLINE // READY' }
+  ];
+
+  let stepIdx = 0;
+  const interval = setInterval(() => {
+    if (stepIdx < steps.length) {
+      const item = steps[stepIdx];
+      pct = item.p;
+      if (fill) fill.style.width = pct + '%';
+      if (pctText) pctText.textContent = pct + '%';
+      if (label) label.textContent = item.txt;
+      if (terminal) {
+        const div = document.createElement('div');
+        div.className = pct === 100 ? 'text-secondary font-bold' : 'text-primary';
+        div.textContent = item.term;
+        terminal.appendChild(div);
+      }
+      if (typeof RetroAudio !== 'undefined' && RetroAudio.playBlipSound) {
+        RetroAudio.playBlipSound(300 + stepIdx * 150, 'square', 0.04);
+      }
+      stepIdx++;
+    } else {
+      clearInterval(interval);
+      setTimeout(dismissBootLoader, 400);
+    }
+  }, 280);
+});
+</script>
 
 
-</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="modal-escape-reset-engine">
+  function resetProjectsView() {
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.classList.remove('hidden');
+      card.style.display = '';
+    });
+    document.querySelectorAll('.project-tab-btn').forEach(btn => {
+      btn.classList.remove('bg-secondary', 'text-on-secondary', 'active');
+      btn.classList.add('bg-[#1e293b]', 'text-on-surface');
+    });
+  }
+
+  function resetSkillsView() {
+    const viewAll = document.getElementById('view-all');
+    if (viewAll) viewAll.classList.remove('hidden');
+    ['view-frontend', 'view-backend', 'view-tools', 'view-practices'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('hidden');
+    });
+    document.querySelectorAll('.skill-tab-btn').forEach(btn => {
+      btn.classList.remove('bg-secondary', 'text-on-secondary', 'active');
+      btn.classList.add('bg-[#1e293b]', 'text-on-surface');
+    });
+  }
+
+  window.closeAllModals = function() {
+    if (typeof toggleProjectsModal === 'function') toggleProjectsModal(false);
+    if (typeof toggleSkillsModal === 'function') toggleSkillsModal(false);
+    if (typeof toggleContactModal === 'function') toggleContactModal(false);
+    if (typeof toggleAboutModal === 'function') toggleAboutModal(false);
+    if (typeof toggleCvModal === 'function') toggleCvModal(false);
+    resetProjectsView();
+    resetSkillsView();
+  };
+
+  const originalToggleProjectsModal = window.toggleProjectsModal;
+  window.toggleProjectsModal = function(show) {
+    if (show) {
+      resetProjectsView();
+    }
+    if (typeof originalToggleProjectsModal === 'function') {
+      originalToggleProjectsModal(show);
+    }
+  };
+  window.openProjectsModal = function() {
+    window.toggleProjectsModal(true);
+  };
+
+  const originalToggleSkillsModal = window.toggleSkillsModal;
+  window.toggleSkillsModal = function(show) {
+    if (show) {
+      resetSkillsView();
+    }
+    if (typeof originalToggleSkillsModal === 'function') {
+      originalToggleSkillsModal(show);
+    }
+  };
+  window.openSkillsModal = function() {
+    window.toggleSkillsModal(true);
+  };
+
+  window.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' || e.keyCode === 27) {
+      closeAllModals();
+    }
+  });
+</script></body></html>
